@@ -6,7 +6,8 @@ const translations = [
     count: (scenes, decisions) => `${scenes} games · ${decisions} decisions`,
     step: (number, total) => `Decision ${number} of ${total}`,
     current: (id) => `Before the action · Record ${id}`,
-    following: (id) => `Next recorded frame · Record ${id}`,
+    corrected: (time) => `Before the action · ${time}`,
+    following: (time) => `After the action · ${time}`,
     showBefore: "Before",
     showAfter: "Follow-up",
     correct: "Same move as the recording.",
@@ -18,7 +19,8 @@ const translations = [
     count: (scenes, decisions) => `${scenes} 款游戏 · ${decisions} 个决策`,
     step: (number, total) => `决策 ${number} / ${total}`,
     current: (id) => `动作前 · 记录 ${id}`,
-    following: (id) => `下一张记录画面 · 记录 ${id}`,
+    corrected: (time) => `动作前 · ${time}`,
+    following: (time) => `动作后 · ${time}`,
     showBefore: "看动作前",
     showAfter: "看后续画面",
     correct: "和录屏里的动作一致。",
@@ -33,6 +35,7 @@ const caseCount = element("case-count");
 const player = element("player");
 const caseGame = element("case-game");
 const caseSteam = element("case-steam");
+const caseSource = element("case-source");
 const caseTitle = element("case-title");
 const caseGoal = element("case-goal");
 const stepPicker = element("step-picker");
@@ -46,6 +49,9 @@ const memoryText = element("memory-text");
 const question = element("question");
 const choices = element("choices");
 const feedback = element("feedback");
+const explanation = element("case-explanation");
+const caseReason = element("case-reason");
+const caseResult = element("case-result");
 const reveal = element("reveal");
 const next = element("next");
 const replay = element("replay");
@@ -86,6 +92,13 @@ function framePath(gameId, record) {
   return `assets/cases/${gameId}-${record}.webp`;
 }
 
+function videoTime(seconds) {
+  const tenths = Math.round(seconds * 10);
+  const minutes = Math.floor(tenths / 600);
+  const remainder = ((tenths % 600) / 10).toFixed(1).padStart(4, "0");
+  return `${minutes}:${remainder}`;
+}
+
 function buttonWithLabel(className, label) {
   const button = document.createElement("button");
   button.type = "button";
@@ -118,8 +131,9 @@ picker.append(...caseButtons);
 function renderFrame() {
   const { gameCase, step } = active();
   const copy = translations[language];
-  const record = displayAfter ? step.after : step.id;
-  const stateLabel = displayAfter ? copy.following(record) : copy.current(record);
+  const record = displayAfter ? `${step.id}-after` : step.id;
+  const beforeLabel = step.beforeTime ? copy.corrected(videoTime(step.beforeTime)) : copy.current(step.id);
+  const stateLabel = displayAfter ? copy.following(videoTime(step.afterTime)) : beforeLabel;
   const path = framePath(gameCase.id, record);
   if (frame.getAttribute("src") !== path) frame.src = path;
   frame.alt = `${gameCase.game[language]} · ${stateLabel}`;
@@ -141,11 +155,14 @@ function renderOutcome() {
   }
   if (shown) {
     const prefix = matched ? copy.correct : `${copy.revealed}${language ? "：" : ": "}${step.options[step.answer][language]}${language ? "。" : "."}`;
-    feedback.textContent = `${prefix} ${step.result[language]}`;
+    feedback.textContent = prefix;
   } else {
     feedback.textContent = incorrect ? copy.wrong : "";
   }
   feedback.dataset.state = shown ? "right" : incorrect ? "wrong" : "";
+  explanation.hidden = !shown;
+  caseReason.textContent = shown ? step.reason[language] : "";
+  caseResult.textContent = shown ? step.result[language] : "";
   reveal.hidden = Boolean(shown);
   toggleFrame.hidden = !shown;
   const last = state.stepIndex === gameCase.steps.length - 1;
@@ -168,6 +185,8 @@ function renderDecision() {
   caseTitle.textContent = gameCase.title[language];
   caseGame.textContent = gameCase.game[language];
   caseSteam.href = `https://store.steampowered.com/app/${gameCase.steamAppId}/`;
+  caseSource.hidden = !gameCase.source;
+  if (gameCase.source) caseSource.href = gameCase.source;
   caseGoal.textContent = gameCase.goal[language];
   observation.textContent = step.observation[language];
   memoryText.textContent = step.memory[language];

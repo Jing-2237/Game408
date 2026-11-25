@@ -1,11 +1,10 @@
 # Figure, recording, and Steam artwork credits
 
-- `game408-cover.webp` — Game408 dataset overview from the project's paper.
-- `game408-catalog.webp` — Game408 training and evaluation game catalog from the paper's supplementary materials.
+- `game408-steam-mosaic.webp` and `game408-steam-mosaic-mobile.webp` — compositions of the 54 official Steam store capsules, in the paper's game split. See the [game catalog](../../GAME_CATALOG.md) for individual sources.
 - `gamehunter-pipeline.webp` — GameHunter training pipeline from the project's paper.
-- `game408-step-scoring.webp` — two single-step scoring examples from The Legend of Skye, reproduced from the paper project.
+- `case-mascot.webp` — Game408 knight supplied by the project owner.
 
-The playtest frames reproduce excerpts from recordings of The Darkside Detective, The Abandoned Planet, Orwell: Keeping an Eye On You, The Legend of Skye, and Lucy Dreaming. The reference actions and scene summaries are based on the corresponding Game408 annotations.
+The playtest frames reproduce excerpts from recordings of The Darkside Detective, The Abandoned Planet, Orwell: Keeping an Eye On You, Lamplight City, Lucy Dreaming, and Beyond the Edge of Owlsgard. See the [playtest review](../../PLAYTEST.md) for annotation sources and frame alignments.
 
 The game-selection artwork uses the official Steam library capsules for these releases.
 
@@ -14,7 +13,8 @@ The game-selection artwork uses the official Steam library capsules for these re
 | `steam/darkside.webp` | [The Darkside Detective](https://store.steampowered.com/app/368390/) |
 | `steam/planet.webp` | [The Abandoned Planet](https://store.steampowered.com/app/2014470/) |
 | `steam/orwell.webp` | [Orwell: Keeping an Eye On You](https://store.steampowered.com/app/491950/) |
-| `steam/skye.webp` | [The Legend of Skye](https://store.steampowered.com/app/2314850/) |
+| `steam/lamplight.webp` | [Lamplight City](https://store.steampowered.com/app/761460/) |
 | `steam/lucy.webp` | [Lucy Dreaming](https://store.steampowered.com/app/1532710/) |
+| `steam/owlsgard.webp` | [Beyond the Edge of Owlsgard](https://store.steampowered.com/app/1709730/) |
 
 The MIT License covers the website code. The paper figures, dataset excerpts, and third-party artwork, screenshots, and trademarks are outside that license. Third-party material remains subject to the rights of its respective owners.

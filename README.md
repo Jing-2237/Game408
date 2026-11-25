@@ -4,7 +4,7 @@
 
 [Project page](https://jing-2237.github.io/Game408/) · [Interactive playtest](https://jing-2237.github.io/Game408/#arena) · [简体中文](README.zh-CN.md)
 
-![Game408 paper teaser showing the dataset's narrative games](docs/assets/game408-cover.webp)
+![A mosaic of official Steam covers for all 54 Game408 games](docs/assets/game408-steam-mosaic.webp)
 
 In narrative games, a clue found in one scene can determine which door to open or which evidence to submit several scenes later. Game408 tests whether an agent can recall the clue, connect it to the current scene, and carry out a concrete action. The benchmark focuses on mostly 2D games where players can take the time to inspect evidence before making a move.
 
@@ -20,7 +20,7 @@ Experienced volunteers mapped main and side storylines to place checkpoints at m
 - **Game408-CoA** organizes sequences of actions by story stage. It includes successful play, genuine mistakes, and recovery steps such as retrying, switching tools, or repositioning.
 - **Reasoning horizons D0–D3** describe how far back the necessary evidence comes from. D0 uses the current screen. D1 adds recent actions or clues from the same scene. D2 combines multiple clues or prerequisites within a story segment. D3 draws on evidence, branch states, or goals across scenes or stages.
 
-![Game408 catalog with 42 training game covers and 12 held-out game covers](docs/assets/game408-catalog.webp)
+[Browse the 54-game catalog and Steam cover sources](GAME_CATALOG.md)
 
 ## GameHunter
 
@@ -56,13 +56,15 @@ For each decision, an LLM judge examines the frame, task state, available action
 
 When all seven criteria can be scored, the normalized step score is the raw total divided by **35**. For the overall report, each criterion is averaged over the applicable and assessable steps and converted to a percentage. **Action** averages its two criterion percentages, and **Reasoning** averages its five.
 
-![Two Game408 scoring examples from The Legend of Skye, showing pre-action evidence, recorded actions, and criterion scores](docs/assets/game408-step-scoring.webp)
+**Worked example from Lamplight City.** Amélie remembers a book the color of her stew spices. After checking the reddish and orange spices, the player inspects the matching copy of *Choice and Consequence*. The earlier testimony and kitchen observation support the action. Inspecting the correct volume grounds the choice, and Miles's subsequent remark provides feedback.
 
-In the first example above, the blowgun is a valid choice and the bubble is the correct target. The reasoning loses one point on Action Judgment because the interface confirms the command is available while the bubble's path is still unverified. The resulting step score is **34/35**.
+| Before the action | Recorded outcome |
+| --- | --- |
+| ![The red-orange book among darker volumes](docs/assets/cases/lamplight-414.webp) | ![Miles identifies the possible match to Amélie's description](docs/assets/cases/lamplight-414-after.webp) |
 
 ## Playtest and releases
 
-The browser playtest contains 12 decisions from five recorded games. Pick a game, inspect the pre-action frame and optional clues, then compare your choice with the recorded action and the next recorded frame. The game-selection artwork comes from the respective Steam listings.
+The browser playtest contains 14 decisions from six recorded games. Inspect the pre-action frame and earlier clues, then compare your choice with the reference action, its reasoning, and the recorded outcome. The [playtest review](PLAYTEST.md) lists the source records and corrected frame alignments.
 
 | Resource | Status |
 | --- | --- |
@@ -71,6 +73,7 @@ The browser playtest contains 12 decisions from five recorded games. Pick a game
 | GameHunter model weights | Planned |
 | Game408 dataset and annotations | Planned |
 | Public leaderboard and submissions | Planned |
+| [LongGameReasoning](https://huggingface.co/datasets/Jing2237/LongGameReasoning) | Related public SFT data |
 
 To preview the static site locally, run `python -m http.server 8000 --directory docs` from the repository root and open [localhost:8000](http://localhost:8000). GitHub Pages serves `main:/docs`.
 

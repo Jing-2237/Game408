@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore Game408, a benchmark for long-horizon reasoning in 2D narrative games. Try decisions from five recorded game sessions.">
+  <meta name="description" content="Explore Game408, a benchmark for long-horizon reasoning in 2D narrative games. Try and review decisions from six recorded games.">
   <meta name="theme-color" content="#171611">
   <meta property="og:title" content="Game408 · From clues to actions">
   <meta property="og:description" content="Play through decisions from real Game408 recordings.">
-  <meta property="og:image" content="https://jing-2237.github.io/Game408/assets/game408-cover.webp">
+  <meta property="og:image" content="https://jing-2237.github.io/Game408/assets/game408-steam-mosaic.webp">
   <title>Game408 · From clues to actions</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
@@ -35,14 +35,18 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-inner">
         <div class="hero-stage">
-          <img class="hero-teaser" src="assets/game408-cover.webp" width="1800" height="857" fetchpriority="high" alt="The Game408 knight emerges from a mosaic of games in the dataset." data-zh-alt="Game408 骑士从数据集的游戏拼图中探出身来。">
+          <picture class="hero-mosaic">
+            <source media="(max-width: 43rem)" srcset="assets/game408-steam-mosaic-mobile.webp">
+            <img src="assets/game408-steam-mosaic.webp" width="2822" height="890" fetchpriority="high" alt="Cover mosaic of all 54 games in Game408." data-zh-alt="Game408 收录的 54 款游戏封面拼贴。">
+          </picture>
           <div class="hero-copy">
             <p class="kicker" data-zh="二维叙事游戏评测基准">A 2D narrative game benchmark</p>
             <h1 id="hero-title">Game408</h1>
             <p class="hero-deck" data-zh="从线索到行动">From clues to actions</p>
             <div class="hero-actions">
               <a class="button primary" href="#arena" data-zh="试玩真实游戏片段">Try a recorded case</a>
-              <a class="teaser-link" href="assets/game408-cover.webp" target="_blank" rel="noopener" data-zh="查看完整 teaser">View full teaser</a>
+              <a class="button hero-secondary" href="#benchmark" data-zh="54 款游戏目录">Game catalog</a>
+              <a class="button hero-secondary" href="https://huggingface.co/datasets/Jing2237/LongGameReasoning" data-zh="Hugging Face 数据">Hugging Face data</a>
             </div>
           </div>
         </div>
@@ -69,7 +73,7 @@
         <article class="player" id="player" aria-labelledby="case-title" hidden>
           <div class="player-head">
             <div>
-              <div class="case-game-line"><p class="case-game" id="case-game"></p><a id="case-steam" target="_blank" rel="noopener">Steam</a></div>
+              <div class="case-game-line"><p class="case-game" id="case-game"></p><a id="case-steam" target="_blank" rel="noopener">Steam</a><a id="case-source" target="_blank" rel="noopener" data-zh="标注来源" hidden>Annotation source</a></div>
               <h3 id="case-title" tabindex="-1"></h3>
               <p class="case-goal" id="case-goal"></p>
             </div>
@@ -95,6 +99,13 @@
               <h4 id="question" tabindex="-1" data-zh="下一步怎么做？">What would you do next?</h4>
               <div id="choices" class="choices" role="group" aria-labelledby="question"></div>
               <p id="feedback" class="feedback" role="status"></p>
+              <div class="case-explanation" id="case-explanation" hidden>
+                <img src="assets/case-mascot.webp" width="144" height="144" alt="" loading="lazy">
+                <dl>
+                  <div><dt data-zh="为什么这样做">Why this move</dt><dd id="case-reason"></dd></div>
+                  <div><dt data-zh="录屏里的结果">Recorded outcome</dt><dd id="case-result"></dd></div>
+                </dl>
+              </div>
               <div class="decision-actions">
                 <button type="button" id="reveal" class="text-button" data-zh="查看录屏动作">Show recorded action</button>
                 <button type="button" id="next" class="button primary" data-zh="下一步" hidden>Next decision</button>
@@ -102,7 +113,7 @@
               </div>
             </div>
           </div>
-          <p class="player-note" data-zh="截图和参考动作来自真实录屏。选项为试玩编写，每案节选了若干决策。">Screenshots and reference moves come from recorded play. Choices are written for this demo, and cases skip intervening actions.</p>
+          <p class="player-note"><span data-zh="截图和参考动作来自真实录屏。选项为试玩编写，每案节选了若干决策。">Screenshots and reference moves come from recorded play. Choices are written for this demo, and cases skip intervening actions.</span> <a class="figure-link" href="https://github.com/Jing-2237/Game408/blob/main/PLAYTEST.md" data-zh="查看审校记录">See the review notes</a></p>
         </article>
         <div class="ranking">
           <h3 data-zh="模型排行榜">Model leaderboard</h3>
@@ -122,8 +133,8 @@
         <article><h3 data-zh="推理质量">Reasoning quality</h3><p data-zh="决策是否有当前观察、历史线索和交互反馈的支持？">Does the decision draw on observations, earlier evidence, and feedback?</p></article>
       </div>
       <figure class="paper-figure">
-        <a href="assets/game408-catalog.webp" target="_blank" rel="noopener"><img src="assets/game408-catalog.webp" width="1900" height="959" loading="lazy" alt="Game408 catalog, showing the covers of 42 training games and 12 evaluation games." data-zh-alt="Game408 目录，展示 42 款训练游戏和 12 款评测游戏的封面。"></a>
-        <figcaption><span data-zh="论文游戏目录，含 42 款训练游戏和 12 款评测游戏。">Game catalog from the paper, with 42 training games and 12 evaluation games.</span> <a class="figure-link" href="https://github.com/Jing-2237/Game408#evaluation-protocol" data-zh="阅读完整评测规则" data-zh-href="https://github.com/Jing-2237/Game408/blob/main/README.zh-CN.md#评测规则">Read the evaluation protocol</a></figcaption>
+        <a href="assets/game408-steam-mosaic.webp" target="_blank" rel="noopener"><img src="assets/game408-steam-mosaic.webp" width="2822" height="890" loading="lazy" alt="Steam cover mosaic with 42 training games on the left and 12 evaluation games on the right." data-zh-alt="Steam 封面拼贴，左侧 42 款为训练游戏，右侧 12 款为评测游戏。"></a>
+        <figcaption><span data-zh="左侧七列为 42 款训练游戏，右侧两列为 12 款评测游戏。">The left seven columns are 42 training games. The right two are 12 evaluation games.</span> <a class="figure-link" href="https://github.com/Jing-2237/Game408/blob/main/GAME_CATALOG.md" data-zh="查看游戏名单">View game list</a> <a class="figure-link" href="https://github.com/Jing-2237/Game408#evaluation-protocol" data-zh="阅读完整评测规则" data-zh-href="https://github.com/Jing-2237/Game408/blob/main/README.zh-CN.md#评测规则">Read the evaluation protocol</a></figcaption>
       </figure>
     </section>
 
@@ -149,6 +160,7 @@
           <li><span data-zh="评测与训练代码">Evaluation and training code</span><span data-zh="待发布">Planned</span></li>
           <li><span data-zh="GameHunter 模型权重">GameHunter model weights</span><span data-zh="待发布">Planned</span></li>
           <li><span data-zh="Game408 数据与标注">Game408 dataset and annotations</span><span data-zh="待发布">Planned</span></li>
+          <li><a href="https://huggingface.co/datasets/Jing2237/LongGameReasoning">LongGameReasoning</a><span data-zh="相关公开数据">Related public data</span></li>
         </ul>
       </div>
     </section>
