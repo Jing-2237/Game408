@@ -3,7 +3,6 @@
 const translations = [
   {
     title: "Game408 · From clues to actions",
-    count: (scenes, decisions) => `${scenes} games · ${decisions} decisions`,
     step: (number, total) => `Decision ${number} of ${total}`,
     current: (id) => `Before the action · Record ${id}`,
     corrected: (time) => `Before the action · ${time}`,
@@ -17,7 +16,6 @@ const translations = [
   },
   {
     title: "Game408 · 从线索到行动",
-    count: (scenes, decisions) => `${scenes} 款游戏 · ${decisions} 个决策`,
     step: (number, total) => `决策 ${number} / ${total}`,
     current: (id) => `动作前 · 记录 ${id}`,
     corrected: (time) => `动作前 · ${time}`,
@@ -33,7 +31,6 @@ const translations = [
 
 const element = (id) => document.getElementById(id);
 const picker = element("case-picker");
-const caseCount = element("case-count");
 const player = element("player");
 const caseGame = element("case-game");
 const caseSteam = element("case-steam");
@@ -75,7 +72,6 @@ let language = 0;
 let caseIndex = 0;
 let displayAfter = false;
 const progress = gameCases.map(() => ({ stepIndex: 0, attempts: new Map() }));
-const totalDecisions = gameCases.reduce((count, gameCase) => count + gameCase.steps.length, 0);
 
 try {
   if (localStorage.getItem("game408-language") === "zh-CN") language = 1;
@@ -234,7 +230,6 @@ function renderLanguage() {
   languageButton.textContent = language ? "English" : "中文";
   languageButton.lang = language ? "en" : "zh-CN";
   languageButton.setAttribute("aria-label", language ? "Switch to English" : "切换为中文");
-  caseCount.textContent = translations[language].count(gameCases.length, totalDecisions);
   renderDecision();
   document.dispatchEvent(new Event("game408languagechange"));
 }
@@ -271,5 +266,4 @@ languageButton.addEventListener("click", () => {
 
 renderLanguage();
 languageButton.hidden = false;
-caseCount.hidden = false;
 player.hidden = false;

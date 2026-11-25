@@ -1,6 +1,6 @@
 # Playtest review
 
-The website uses 30 decisions from 14 games. The review checks the pre-action observation and earlier evidence against the selected action, the source annotation, and the pictured result. Outcome references are video times measured in seconds or observation record numbers.
+The review checks each scene’s pre-action observation and earlier evidence against the selected action, the source annotation, and the pictured result. Outcome references are video times measured in seconds or observation record numbers.
 
 | Game | Record | Evidence and recorded action | Outcome reference |
 | --- | ---: | --- | ---: |
@@ -34,13 +34,23 @@ The website uses 30 decisions from 14 games. The review checks the pre-action ob
 | The Crimson Diamond | 210 | Use the loupe on the red-and-white cliff sample. The on-screen description identifies its coarse-grained texture and rock type. | Record 210 |
 | The Crimson Diamond | 215 | Use the loupe on the washed river sample. The game reports tiny curved scratches and pitting. | Record 215 |
 | The Sundew | 51 | Apply the Payment badge to the vending machine reader. The follow-up inventory shows the rice-ball icon. | Record 52 |
+| The Beekeeper’s Picnic | 139 | Link the curried lamb and the repeated throat-clearing on the Deductions board. Holmes concludes that Watson is thirsty. | Record 140 |
+| The Beekeeper’s Picnic | 154 | Use the selected beaker on the Gasogene. Holmes confirms that the beaker is full of carbonated water. | Record 155 |
+| Old Skies | 84–85 | Search the historical archive for Lisa Sandman, using the name from her records. The result shows her chemistry post at NYU and records her death in an explosion. | Record 86 |
+| Old Skies | 99–100 | Search for Rhona Foster, whose name came from two sources. Her record also names NYU’s chemistry department and mentions a lab explosion. | Record 101 |
+| Follow the Meaning | 273 | Drag the left-facing side view into the slot directly left of the central hat. The straight-left slot fills, with the two diagonal slots still empty. | Record 273 |
+| Follow the Meaning | 339 | The bottom row’s line ends at a dot. Toggle that row while leaving the other three untouched. The panel gives way to the bunker door. | Record 340 |
+| Unforeseen Incidents | 301 | The farmer’s condition is restored power. Select HYDRO PLANT on the map. Harper arrives outside the plant. | Record 302 |
+| Unforeseen Incidents | 321 | Ask Edwin about the powerless farm. An option to help with distribution appears. | Record 322 |
 
 ## Sources and frame alignments
 
 - The Darkside Detective, The Abandoned Planet, Orwell, and Lamplight City use the project annotations and original recordings. Lucy Dreaming uses the working annotations and accompanying recording.
 - The Owlsgard decisions use the original recording for episode `beyond_owlsgard_ep01`. The annotation frame for record 77 already showed the map. The playtest uses the scene at 4045.0 seconds before the push, and 4079.5 seconds for the start of the map dialogue in record 78.
 - In the Darkside rune sequence, the annotation for record 70 describes a lower-left spiral, which is already lit in the frame. The playtest uses the directly visible right-side placement at 339.0–341.0 seconds and pairs it with the corresponding template evidence.
-- Whispers of a Machine, Paper Perjury, and the six additional games use selected annotation records and screenshots. The review checks the recorded input against the visible change and omits examples where intermediate actions could not be resolved from the frames.
+- The other examples use selected annotation records and screenshots. The review checks the recorded input against the visible change and omits examples where intermediate actions could not be resolved from the frames.
 - The Crimson Diamond records 210 and 215 already show the loupe’s result. The task browser uses images 209 and 214, respectively, for the pre-action frames.
+- In Old Skies, each search option groups entering the full name and submitting the search. Both inputs are recorded separately.
+- The straight-left hat slot is empty in Follow the Meaning frame 272 and filled in frame 273. The task browser uses those frames for the action recorded as 273.
 
 The alternatives were written for the website. The excerpts omit interactions between selected decisions.
