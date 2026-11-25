@@ -2,6 +2,8 @@
 
 The review checks each scene’s pre-action observation and earlier evidence against the selected action, the source annotation, and the pictured result. Outcome references are video times measured in seconds or observation record numbers.
 
+The reasoning hints use the pre-action state. The explanation shown after answering connects those clues to the recorded operation and identifies what changed in the follow-up frame.
+
 | Game | Record | Evidence and recorded action | Outcome reference |
 | --- | ---: | --- | ---: |
 | The Darkside Detective | 66 | Fit the blacklight bulb into the broken attic lamp to look for the hidden doorway. The pattern lights up. | 316.0 |
@@ -16,7 +18,7 @@ The review checks each scene’s pre-action observation and earlier evidence aga
 | Lucy Dreaming | 148 | Apply the selected lip balm to the inventory box. Lucy comments on the completed calming runes. | 824.0 |
 | Lucy Dreaming | 154 | Use the repaired bear on the dream box. Lucy addresses Mr. Fumble as she places it inside. | 844.5 |
 | Lucy Dreaming | 157 | Use the joke book on the dream box. Lucy confirms it counts as inspiration. | 853.5 |
-| Beyond the Edge of Owlsgard | 77 | Use Push on the reachable owl statue above the machine. The machine falls quiet before the map scene. | 4054.0 |
+| Beyond the Edge of Owlsgard | 77 | Use Push on the reachable owl statue above the machine. The machine is down and Finn says it should be quiet for a while. | 4054.0 |
 | Beyond the Edge of Owlsgard | 78 | Continue reading the wall map as the companion interprets its names. The dialogue places the Isle of Owlsgard far to the north. | 4088.0 |
 | Whispers of a Machine | 161 | Switch from the blade pattern to SMART SCAN to survey for traces. The scanner label changes. | Record 162 |
 | Whispers of a Machine | 162 | Drag the SMART SCAN frame from the right side of the road to the path beside the purple-flowered bed. The frame moves to the path. | Record 163 |
