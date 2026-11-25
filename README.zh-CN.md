@@ -64,32 +64,21 @@ GameHunter 是论文提出的视觉语言智能体。学生模型基于 **Qwen3.
 | --- | --- |
 | ![深色书册之间的红橙色书](docs/assets/cases/lamplight-414.webp) | ![迈尔斯认为这应该是 Amélie 提到的书](docs/assets/cases/lamplight-414-after.webp) |
 
-## 排行榜、任务与发布
+## 排行榜与任务
 
-排行榜展示论文中的 Game408-Val 对比结果，可按整体、动作和推理指标排序。人类表现单列为参考。
+[排行榜](https://jing-2237.github.io/Game408/#leaderboard)展示论文在 Game408-Val 上报告的闭源模型结果。
 
 在任务浏览区，可以先看动作前画面和历史线索，再选择下一步，并对照实录动作、推理依据和结果。[试玩审校记录](PLAYTEST.md)列出了标注编号、结果帧来源和画面对齐的修正。
 
-| 资源 | 状态 |
-| --- | --- |
-| 项目主页与交互试玩 | 已上线 |
-| 评测、训练与数据处理 | 已提供占位接口和配置示例 |
-| GameHunter 权重 | 待发布 |
-| Game408 数据集及标注 | 待发布 |
-| 公开结果提交 | 待开放 |
-
 ## 代码目录
 
-| 路径 | 后续接入内容 |
-| --- | --- |
-| [`evaluation/`](evaluation/) | 评测入口、单存档运行、游戏环境适配、评分与汇总。 |
-| [`training/`](training/) | 训练入口和数据读取接口。 |
-| [`models/`](models/) | GameHunter 模型与智能体加载接口。 |
-| [`data/`](data/) | 标注处理和存档清单准备。 |
-| [`configs/`](configs/) | 路径留空的评测与训练配置样例。 |
-| [`docs/`](docs/) | 主页、游戏素材与经审校的试玩片段。 |
+评分示例使用模拟的存档点结果，计算任务完成率、有效动作比例和平均耗时。
 
-Python 占位函数会抛出 `NotImplementedError`，可直接把函数体替换为正式实现。
+```shell
+python -m evaluation.run configs/scoring.example.json
+```
+
+[`evaluation/`](evaluation/) · [`training/`](training/) · [`models/`](models/) · [`data/`](data/) · [`configs/`](configs/) · [`docs/`](docs/)
 
 在仓库根目录运行 `python -m http.server 8000 --directory docs`，即可打开[本地预览](http://localhost:8000)。
 

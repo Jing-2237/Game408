@@ -1,0 +1,17 @@
+[
+  {
+    "game": "example-a",
+    "objectives": [true, false, true],
+    "actions": [
+      {"effective": true, "latency_seconds": 1.5},
+      {"effective": false, "latency_seconds": 2.0}
+    ]
+  },
+  {
+    "game": "example-b",
+    "objectives": [true],
+    "actions": [
+      {"effective": true, "latency_seconds": 1.0}
+    ]
+  }
+]

@@ -64,32 +64,21 @@ When all seven criteria can be scored, the normalized step score is the raw tota
 | --- | --- |
 | ![The red-orange book among darker volumes](docs/assets/cases/lamplight-414.webp) | ![Miles identifies the possible match to Amélie's description](docs/assets/cases/lamplight-414-after.webp) |
 
-## Leaderboard, tasks, and releases
+## Leaderboard and tasks
 
-The leaderboard reproduces the paper's Game408-Val comparison table. Overall, action, and reasoning views can be sorted independently. Human play is shown as a reference.
+The [leaderboard](https://jing-2237.github.io/Game408/#leaderboard) shows the closed-source comparisons reported for Game408-Val.
 
 In the task browser, inspect a pre-action frame and earlier clues, then compare your choice with the reference action, its reasoning, and the recorded outcome. The [playtest review](PLAYTEST.md) lists the records and frame alignments.
 
-| Resource | Status |
-| --- | --- |
-| Project site and playtest | Available |
-| Evaluation, training, and data preparation | Placeholder interfaces and example configs |
-| GameHunter model weights | Planned |
-| Game408 dataset and annotations | Planned |
-| Public submissions | Planned |
-
 ## Repository layout
 
-| Path | Planned implementation |
-| --- | --- |
-| [`evaluation/`](evaluation/) | Benchmark runner, checkpoint rollouts, environment adapter, and scoring. |
-| [`training/`](training/) | Training entry point and dataset loading. |
-| [`models/`](models/) | GameHunter model and agent loader. |
-| [`data/`](data/) | Dataset and checkpoint manifest preparation. |
-| [`configs/`](configs/) | Example evaluation and training settings with blank paths. |
-| [`docs/`](docs/) | Published website and reviewed task excerpts. |
+The scoring example uses synthetic checkpoint outcomes to compute completion, action efficiency, and mean latency.
 
-The Python files are replacement points. Their stubs raise `NotImplementedError` until the project implementation is added.
+```shell
+python -m evaluation.run configs/scoring.example.json
+```
+
+[`evaluation/`](evaluation/) · [`training/`](training/) · [`models/`](models/) · [`data/`](data/) · [`configs/`](configs/) · [`docs/`](docs/)
 
 To preview the website locally, run `python -m http.server 8000 --directory docs` from the repository root and open [localhost:8000](http://localhost:8000).
 
