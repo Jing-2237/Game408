@@ -22,7 +22,7 @@ The website uses 14 decisions from six games. The review checks the pre-action o
 ## Sources and frame alignments
 
 - The Darkside Detective, The Abandoned Planet, Orwell, and Lamplight City use the project annotations and original recordings. Lucy Dreaming uses the working annotations and accompanying recording.
-- The Owlsgard decisions were found in the [LongGameReasoning validation file](https://huggingface.co/datasets/Jing2237/LongGameReasoning/blob/main/sft/dev.jsonl), episode `beyond_owlsgard_ep01`, and checked against the original video. The published image for record 77 already showed the map. The scene at 4045.0 seconds is used for the frame before the push. Record 78 uses its published pre-action frame.
+- The Owlsgard decisions use the original recording for episode `beyond_owlsgard_ep01`. The annotation frame for record 77 already showed the map. The playtest uses the scene at 4045.0 seconds before the push, and 4079.5 seconds for the start of the map dialogue in record 78.
 - In the Darkside rune sequence, the annotation for record 70 describes a lower-left spiral, which is already lit in the frame. The playtest uses the directly visible right-side placement at 339.0–341.0 seconds and pairs it with the corresponding template evidence.
 
 The alternatives were written for the website. The excerpts omit interactions between selected decisions.

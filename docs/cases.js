@@ -210,7 +210,6 @@ const gameCases = [
     game: ["Beyond the Edge of Owlsgard", "越过奥尔斯嘉德之城"],
     title: ["An old map beneath the ruins", "遗迹里的古地图"],
     goal: ["Get past the machine and find a clue to the Isle of Owlsgard's location.", "越过挡路的机器，找到奥尔斯嘉德岛的位置线索。"],
-    source: "https://huggingface.co/datasets/Jing2237/LongGameReasoning/blob/main/sft/dev.jsonl",
     steps: [
       {
         id: 77, afterTime: 4054, beforeTime: 4045,

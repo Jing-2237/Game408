@@ -35,7 +35,6 @@ const caseCount = element("case-count");
 const player = element("player");
 const caseGame = element("case-game");
 const caseSteam = element("case-steam");
-const caseSource = element("case-source");
 const caseTitle = element("case-title");
 const caseGoal = element("case-goal");
 const stepPicker = element("step-picker");
@@ -115,7 +114,9 @@ const caseButtons = gameCases.map((gameCase, index) => {
   image.width = 600;
   image.height = 900;
   image.loading = "lazy";
-  button.append(image, document.createElement("span"));
+  const label = document.createElement("span");
+  label.append(document.createElement("strong"), document.createElement("small"));
+  button.append(image, label);
   button.addEventListener("click", () => {
     if (caseIndex === index) {
       caseTitle.focus();
@@ -185,8 +186,6 @@ function renderDecision() {
   caseTitle.textContent = gameCase.title[language];
   caseGame.textContent = gameCase.game[language];
   caseSteam.href = `https://store.steampowered.com/app/${gameCase.steamAppId}/`;
-  caseSource.hidden = !gameCase.source;
-  if (gameCase.source) caseSource.href = gameCase.source;
   caseGoal.textContent = gameCase.goal[language];
   observation.textContent = step.observation[language];
   memoryText.textContent = step.memory[language];
@@ -211,7 +210,9 @@ function renderDecision() {
   });
   choices.replaceChildren(...options);
   for (const [index, button] of caseButtons.entries()) {
-    button.lastElementChild.textContent = gameCases[index].game[language];
+    const entry = gameCases[index];
+    button.querySelector("strong").textContent = entry.title[language];
+    button.querySelector("small").textContent = entry.game[language];
     button.setAttribute("aria-pressed", String(index === caseIndex));
   }
   renderOutcome();
@@ -235,6 +236,7 @@ function renderLanguage() {
   languageButton.setAttribute("aria-label", language ? "Switch to English" : "切换为中文");
   caseCount.textContent = translations[language].count(gameCases.length, totalDecisions);
   renderDecision();
+  document.dispatchEvent(new Event("game408languagechange"));
 }
 
 reveal.addEventListener("click", () => {

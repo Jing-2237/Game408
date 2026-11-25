@@ -1,8 +1,8 @@
 # Figure, recording, and Steam artwork credits
 
-- `game408-steam-mosaic.webp` and `game408-steam-mosaic-mobile.webp` — compositions of the 54 official Steam store capsules, in the paper's game split. See the [game catalog](../../GAME_CATALOG.md) for individual sources.
+- `game408-cover.webp` — Game408 teaser from the project paper.
+- `game408-steam-mosaic.webp` — composition of the 54 official Steam store capsules, in the paper's game split. See the [game catalog](../../GAME_CATALOG.md) for individual sources.
 - `gamehunter-pipeline.webp` — GameHunter training pipeline from the project's paper.
-- `case-mascot.webp` — Game408 knight supplied by the project owner.
 
 The playtest frames reproduce excerpts from recordings of The Darkside Detective, The Abandoned Planet, Orwell: Keeping an Eye On You, Lamplight City, Lucy Dreaming, and Beyond the Edge of Owlsgard. See the [playtest review](../../PLAYTEST.md) for annotation sources and frame alignments.
 

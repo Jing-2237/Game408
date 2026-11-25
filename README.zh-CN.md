@@ -2,9 +2,9 @@
 
 **长程叙事游戏世界中从线索到动作的深度推理**
 
-[项目主页](https://jing-2237.github.io/Game408/) · [交互试玩](https://jing-2237.github.io/Game408/#arena) · [English](README.md)
+[项目主页](https://jing-2237.github.io/Game408/) · [排行榜](https://jing-2237.github.io/Game408/#leaderboard) · [任务浏览](https://jing-2237.github.io/Game408/#arena) · [English](README.md)
 
-![Game408 收录的 54 款游戏官方 Steam 封面拼贴](docs/assets/game408-steam-mosaic.webp)
+![Game408 论文 teaser](docs/assets/game408-cover.webp)
 
 在叙事游戏里，一条当时用不上的线索，可能决定数个场景后该打开哪扇门、提交哪份证据。Game408 评测智能体能否召回早先的线索，把它和当前画面联系起来，再落实为一次具体操作。基准以可停下来检查线索的二维叙事和解谜游戏为主。
 
@@ -21,6 +21,8 @@
 - **D0–D3 推理跨度**描述当前决策所需的证据范围。D0 依靠当前画面，D1 还需要近期动作或同场景线索，D2 需要结合局部剧情内的多条线索或前置条件，D3 则涉及跨场景或跨阶段的证据、分支状态或目标。
 
 [查看 54 款游戏名单与 Steam 封面来源](GAME_CATALOG.md)
+
+![Game408 收录的 54 款游戏官方 Steam 封面拼贴](docs/assets/game408-steam-mosaic.webp)
 
 ## GameHunter 模型
 
@@ -62,7 +64,9 @@ GameHunter 是论文提出的视觉语言智能体。学生模型基于 **Qwen3.
 | --- | --- |
 | ![深色书册之间的红橙色书](docs/assets/cases/lamplight-414.webp) | ![迈尔斯认为这应该是 Amélie 提到的书](docs/assets/cases/lamplight-414-after.webp) |
 
-## 试玩与发布
+## 排行榜、任务与发布
+
+排行榜展示论文中的 Game408-Val 对比结果，可按整体、动作和推理指标排序。人类表现单列为参考。
 
 主页收录了 6 款游戏的 14 个录屏决策。可以先看动作前画面和历史线索，再选择下一步，并对照实录动作、推理依据和结果。[试玩审校记录](PLAYTEST.md)列出了标注编号与结果取帧时间，并说明画面和标注的修正。
 
@@ -72,8 +76,7 @@ GameHunter 是论文提出的视觉语言智能体。学生模型基于 **Qwen3.
 | 评测与训练代码 | 待发布 |
 | GameHunter 权重 | 待发布 |
 | Game408 数据集及标注 | 待发布 |
-| 公开排行榜与结果提交 | 待开放 |
-| [LongGameReasoning](https://huggingface.co/datasets/Jing2237/LongGameReasoning) | 相关公开 SFT 数据 |
+| 公开结果提交 | 待开放 |
 
 在仓库根目录运行 `python -m http.server 8000 --directory docs`，即可打开[本地预览](http://localhost:8000)。GitHub Pages 从 `main:/docs` 发布。
 

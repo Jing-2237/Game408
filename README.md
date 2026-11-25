@@ -2,9 +2,9 @@
 
 **Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds**
 
-[Project page](https://jing-2237.github.io/Game408/) · [Interactive playtest](https://jing-2237.github.io/Game408/#arena) · [简体中文](README.zh-CN.md)
+[Project page](https://jing-2237.github.io/Game408/) · [Leaderboard](https://jing-2237.github.io/Game408/#leaderboard) · [Task browser](https://jing-2237.github.io/Game408/#arena) · [简体中文](README.zh-CN.md)
 
-![A mosaic of official Steam covers for all 54 Game408 games](docs/assets/game408-steam-mosaic.webp)
+![Game408 paper teaser](docs/assets/game408-cover.webp)
 
 In narrative games, a clue found in one scene can determine which door to open or which evidence to submit several scenes later. Game408 tests whether an agent can recall the clue, connect it to the current scene, and carry out a concrete action. The benchmark focuses on mostly 2D games where players can take the time to inspect evidence before making a move.
 
@@ -21,6 +21,8 @@ Experienced volunteers mapped main and side storylines to place checkpoints at m
 - **Reasoning horizons D0–D3** describe how far back the necessary evidence comes from. D0 uses the current screen. D1 adds recent actions or clues from the same scene. D2 combines multiple clues or prerequisites within a story segment. D3 draws on evidence, branch states, or goals across scenes or stages.
 
 [Browse the 54-game catalog and Steam cover sources](GAME_CATALOG.md)
+
+![A mosaic of official Steam covers for all 54 Game408 games](docs/assets/game408-steam-mosaic.webp)
 
 ## GameHunter
 
@@ -62,7 +64,9 @@ When all seven criteria can be scored, the normalized step score is the raw tota
 | --- | --- |
 | ![The red-orange book among darker volumes](docs/assets/cases/lamplight-414.webp) | ![Miles identifies the possible match to Amélie's description](docs/assets/cases/lamplight-414-after.webp) |
 
-## Playtest and releases
+## Leaderboard, tasks, and releases
+
+The leaderboard reproduces the paper's Game408-Val comparison table. Overall, action, and reasoning views can be sorted independently. Human play is shown as a reference.
 
 The browser playtest contains 14 decisions from six recorded games. Inspect the pre-action frame and earlier clues, then compare your choice with the reference action, its reasoning, and the recorded outcome. The [playtest review](PLAYTEST.md) lists the source records and corrected frame alignments.
 
@@ -72,8 +76,7 @@ The browser playtest contains 14 decisions from six recorded games. Inspect the 
 | Evaluation and training code | Planned |
 | GameHunter model weights | Planned |
 | Game408 dataset and annotations | Planned |
-| Public leaderboard and submissions | Planned |
-| [LongGameReasoning](https://huggingface.co/datasets/Jing2237/LongGameReasoning) | Related public SFT data |
+| Public submissions | Planned |
 
 To preview the static site locally, run `python -m http.server 8000 --directory docs` from the repository root and open [localhost:8000](http://localhost:8000). GitHub Pages serves `main:/docs`.
 
