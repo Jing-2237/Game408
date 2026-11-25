@@ -133,7 +133,7 @@ function renderFrame() {
   const { gameCase, step } = active();
   const copy = translations[language];
   const record = displayAfter ? `${step.id}-after` : step.id;
-  const beforeLabel = step.beforeTime ? copy.corrected(videoTime(step.beforeTime)) : copy.current(step.id);
+  const beforeLabel = step.beforeTime ? copy.corrected(videoTime(step.beforeTime)) : copy.current(step.beforeRecord ?? step.id);
   const afterLabel = step.afterRecord ? copy.followingRecord(step.afterRecord) : copy.following(videoTime(step.afterTime));
   const stateLabel = displayAfter ? afterLabel : beforeLabel;
   const path = framePath(gameCase.id, record);

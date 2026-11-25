@@ -4,7 +4,7 @@
 - `game408-steam-mosaic.webp` — composition of the 54 official Steam store capsules, in the paper's game split. See the [game catalog](../../GAME_CATALOG.md) for individual sources.
 - `gamehunter-pipeline.webp` — GameHunter training pipeline from the project's paper.
 
-The playtest frames reproduce short excerpts from the eight games listed in the [playtest review](../../PLAYTEST.md), which also documents the action and frame alignments.
+The playtest frames reproduce short excerpts from the 14 games listed in the [playtest review](../../PLAYTEST.md), which documents the action and frame alignments.
 
 The game-selection artwork uses the official Steam library capsules for these releases.
 
@@ -18,6 +18,12 @@ The game-selection artwork uses the official Steam library capsules for these re
 | `steam/owlsgard.webp` | [Beyond the Edge of Owlsgard](https://store.steampowered.com/app/1709730/) |
 | `steam/whispers.webp` | [Whispers of a Machine](https://store.steampowered.com/app/631570/) |
 | `steam/perjury.webp` | [Paper Perjury](https://store.steampowered.com/app/1919600/) |
+| `steam/horticulture.webp` | [Strange Horticulture](https://store.steampowered.com/app/1574580/) |
+| `steam/guardsman.webp` | [Lil’ Guardsman](https://store.steampowered.com/app/1924360/) |
+| `steam/idol.webp` | [The Case of the Golden Idol](https://store.steampowered.com/app/1677770/) |
+| `steam/hotline.webp` | [Home Safety Hotline](https://store.steampowered.com/app/2357910/) |
+| `steam/diamond.webp` | [The Crimson Diamond](https://store.steampowered.com/app/1098770/) |
+| `steam/sundew.webp` | [The Sundew](https://store.steampowered.com/app/1468380/) |
 
 The MIT License covers the website code. The paper figures, dataset excerpts, and third-party artwork, screenshots, and trademarks are outside that license. Third-party material remains subject to the rights of its respective owners.
 

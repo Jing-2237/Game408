@@ -11,10 +11,10 @@
   <title>Game408 · From clues to actions</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
   <link rel="preload" href="assets/fonts/barlow-condensed-800-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css">
-  <script src="cases.js" defer></script>
-  <script src="script.js" defer></script>
-  <script src="leaderboard.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="cases.js?v=2" defer></script>
+  <script src="script.js?v=2" defer></script>
+  <script src="leaderboard.js?v=2" defer></script>
 </head>
 <body>
   <a class="skip" href="#main" data-zh="跳到正文">Skip to content</a>
@@ -39,10 +39,10 @@
       <div class="hero-inner">
         <div class="hero-stage">
           <img class="hero-art" src="assets/game408-cover.webp" width="1800" height="857" fetchpriority="high" alt="Game408 paper teaser showing the benchmark’s narrative games." data-zh-alt="Game408 论文 teaser，展示基准收录的叙事游戏。">
+          <div class="hero-titleplate"><h1 id="hero-title">Game<span>408</span></h1></div>
         </div>
         <div class="hero-copy">
-          <h1 id="hero-title">Game<span>408</span></h1>
-          <p class="hero-deck" data-zh="Game408：长程叙事游戏世界中从线索到动作的深度推理">Game408: Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds</p>
+          <p class="hero-deck" lang="en"><strong>Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds</strong></p>
           <div class="hero-actions">
             <a class="button primary" href="#arena" data-zh="进入任务台">Browse tasks</a>
             <a class="button secondary" href="#protocol" data-zh="评测规则">Evaluation protocol</a>
@@ -165,7 +165,7 @@
 
     <section class="wrap leaderboard" id="leaderboard" aria-labelledby="ranking-title">
       <div class="section-heading">
-        <h2 id="ranking-title" data-zh="模型排行榜">Model leaderboard</h2>
+        <h2 id="ranking-title" data-zh="闭源模型排行榜">Closed-source model leaderboard</h2>
         <p data-zh="Game408-Val · 12 款留出游戏，83 个剧情存档点">Game408-Val · 12 held-out games, 83 story checkpoints</p>
       </div>
       <div class="rank-panel">
@@ -175,13 +175,6 @@
             <button type="button" data-view="action" aria-pressed="false" data-zh="动作">Action</button>
             <button type="button" data-view="reasoning" aria-pressed="false" data-zh="推理">Reasoning</button>
           </div>
-          <label class="rank-filter"><span data-zh="模型类型">Model type</span>
-            <select id="rank-filter">
-              <option value="all" data-zh="全部">All models</option>
-              <option value="generalist" data-zh="通用模型">Generalist</option>
-              <option value="game" data-zh="游戏智能体">Game agent</option>
-            </select>
-          </label>
         </div>
         <div class="rank-scroll" role="region" aria-label="Model results" data-zh-aria="各模型评测结果" tabindex="0">
           <table class="rank-table" id="rank-table">
@@ -190,7 +183,7 @@
           </table>
         </div>
         <noscript><p class="rank-note">Enable JavaScript to sort the results, or see the evaluation description in the project README.</p></noscript>
-        <p class="rank-note"><span data-zh="结果来自论文中的模型对比表。人类表现单列为参考。公开提交待开放。">Paper-reported results. Human play is listed as a reference. Public submissions are pending.</span> <a href="#protocol" data-zh="指标定义">Metric definitions</a></p>
+        <p class="rank-note"><span data-zh="五款闭源模型的结果取自论文对比表。公开提交待开放。">Paper-reported results for five closed-source models. Public submissions are pending.</span> <a href="#protocol" data-zh="指标定义">Metric definitions</a></p>
       </div>
     </section>
 

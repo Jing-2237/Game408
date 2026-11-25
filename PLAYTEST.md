@@ -1,6 +1,6 @@
 # Playtest review
 
-The website uses 18 decisions from eight games. The review checks the pre-action observation and earlier evidence against the selected action, the source annotation, and the pictured result. Outcome references are video times measured in seconds or the next annotated observation.
+The website uses 30 decisions from 14 games. The review checks the pre-action observation and earlier evidence against the selected action, the source annotation, and the pictured result. Outcome references are video times measured in seconds or observation record numbers.
 
 | Game | Record | Evidence and recorded action | Outcome reference |
 | --- | ---: | --- | ---: |
@@ -21,13 +21,26 @@ The website uses 18 decisions from eight games. The review checks the pre-action
 | Whispers of a Machine | 161 | Switch from the blade pattern to SMART SCAN to survey for traces. The scanner label changes. | Record 162 |
 | Whispers of a Machine | 162 | Drag the SMART SCAN frame from the right side of the road to the path beside the purple-flowered bed. The frame moves to the path. | Record 163 |
 | Whispers of a Machine | 163 | Select the saved BOOT PRINT sample over the path to test a match. The scanner reports a matching pattern. | Record 164 |
-| Paper Perjury | 38 | Present Ms. Lear's statement about the person carrying lockpicks. It conflicts with Hana's account that she had put hers away. Justina challenges the simple-robbery explanation. | Record 39 |
+| Paper Perjury | 38 | Present Ms. Lear's claim that the suspect was carrying lockpicks to test it against Hana's account that she had put hers away. Justina challenges the simple-robbery explanation. | Record 39 |
+| Strange Horticulture | 320 | The route card gives two pairs of endpoints. Click their intersection. The I13 exploration note offers two plants. | Record 321 |
+| Strange Horticulture | 378 | Click through the square window of the positioned decoder. The D12 travel note offers a plant. | Record 379 |
+| Lil’ Guardsman | 41 | Use the Decoder Ring on the children’s letter. The follow-up shows Denise reacting to what it said about Kellii. | Record 42 |
+| Lil’ Guardsman | 47 | Use the Decoder Ring to examine the markings on the hidden gold bars. Lil’s dialogue refers to the goblin’s remark about blood gold. | Record 48 |
+| The Case of the Golden Idol | 53 | Drag “hunting” to the leather clothes on the bed, using the diary and riding coat as clues. The lower-right tag changes. | Record 54 |
+| The Case of the Golden Idol | 54 | Drag “dining” to the portrait with the meal and formal cravat. The portrait’s tag changes. | Record 55 |
+| The Case of the Golden Idol | 55 | Drag “researching” to the stained white coat. The game marks the clothing panel correct. | Record 56 |
+| Home Safety Hotline | 48 | Match Dan’s account of the reorganized desk to Desk Hobb. The collapsed field retains the selection. | Record 49 |
+| Home Safety Hotline | 54 | Match David’s description of the creature near the basement stairs to Stair Slug. The collapsed field retains the selection. | Record 55 |
+| The Crimson Diamond | 210 | Use the loupe on the red-and-white cliff sample. The on-screen description identifies its coarse-grained texture and rock type. | Record 210 |
+| The Crimson Diamond | 215 | Use the loupe on the washed river sample. The game reports tiny curved scratches and pitting. | Record 215 |
+| The Sundew | 51 | Apply the Payment badge to the vending machine reader. The follow-up inventory shows the rice-ball icon. | Record 52 |
 
 ## Sources and frame alignments
 
 - The Darkside Detective, The Abandoned Planet, Orwell, and Lamplight City use the project annotations and original recordings. Lucy Dreaming uses the working annotations and accompanying recording.
 - The Owlsgard decisions use the original recording for episode `beyond_owlsgard_ep01`. The annotation frame for record 77 already showed the map. The playtest uses the scene at 4045.0 seconds before the push, and 4079.5 seconds for the start of the map dialogue in record 78.
 - In the Darkside rune sequence, the annotation for record 70 describes a lower-left spiral, which is already lit in the frame. The playtest uses the directly visible right-side placement at 339.0–341.0 seconds and pairs it with the corresponding template evidence.
-- The two additional cases were selected from the validation annotation export, using their recorded tool calls and paired screen observations. The outcome frames show scanner state changes, a pattern match, and the response to presenting evidence.
+- Whispers of a Machine, Paper Perjury, and the six additional games use selected annotation records and screenshots. The review checks the recorded input against the visible change and omits examples where intermediate actions could not be resolved from the frames.
+- The Crimson Diamond records 210 and 215 already show the loupe’s result. The task browser uses images 209 and 214, respectively, for the pre-action frames.
 
 The alternatives were written for the website. The excerpts omit interactions between selected decisions.
