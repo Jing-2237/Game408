@@ -1,29 +1,77 @@
 # Game408
 
-[Project website](https://jing-2237.github.io/Game408/) · [Interactive playtest](https://jing-2237.github.io/Game408/#arena)
+**Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds**
 
-**Game408: Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds**
+[Project page](https://jing-2237.github.io/Game408/) · [Interactive playtest](https://jing-2237.github.io/Game408/#arena) · [简体中文](README.zh-CN.md)
 
-Game408 is a research benchmark for long-horizon reasoning in narrative and puzzle games, primarily with 2D interfaces. Agents can pause to review evidence, connect clues across scenes, and take discrete actions to advance the story. The dataset described in the paper contains 54 games, 408 checkpoints, and over 24,000 human reasoning and action annotations.
+![Game408 paper teaser showing the dataset's narrative games](docs/assets/game408-cover.webp)
 
-GameHunter is the agent proposed in the paper. Its training combines supervised learning on Game408, execution training under teacher-provided intent, and joint distillation on autonomous trajectories.
+In narrative games, a clue found in one scene can determine which door to open or which evidence to submit several scenes later. Game408 tests whether an agent can recall the clue, connect it to the current scene, and carry out a concrete action. The benchmark focuses on mostly 2D games where players can take the time to inspect evidence before making a move.
 
-The playtest includes 12 decisions from five recorded games. Each scene presents a pre-action frame, optional earlier evidence, and a choice of actions. The reference move reveals the next recorded frame. The case text summarizes selected annotations, and the practice choices are written for the site.
+## Dataset
 
-## Release status
+| Games | Story checkpoints | Human gameplay | Reasoning and action annotations |
+| ---: | ---: | ---: | ---: |
+| 54 | 408 | 260+ hours | 24,000+ |
+
+Experienced volunteers mapped main and side storylines to place checkpoints at meaningful stage boundaries. Novice players then checked the clarity of the objectives and starting information. The game-level split uses **42 titles for training** and **12 held-out titles with 83 checkpoints for evaluation** in **Game408-Val**.
+
+- **Game408-CoT** documents individual semantic actions. Each record connects a pre-action observation with earlier clues, the player's intent, the operation, and its recorded feedback.
+- **Game408-CoA** organizes sequences of actions by story stage. It includes successful play, genuine mistakes, and recovery steps such as retrying, switching tools, or repositioning.
+- **Reasoning horizons D0–D3** describe how far back the necessary evidence comes from. D0 uses the current screen. D1 adds recent actions or clues from the same scene. D2 combines multiple clues or prerequisites within a story segment. D3 draws on evidence, branch states, or goals across scenes or stages.
+
+![Game408 catalog with 42 training game covers and 12 held-out game covers](docs/assets/game408-catalog.webp)
+
+## GameHunter
+
+GameHunter is the vision-language agent introduced in the paper. The student is fine-tuned from **Qwen3.5-9B**, and the teacher models are fine-tuned from **Qwen3.5-4B**. Training proceeds in three stages.
+
+1. **Supervised fine-tuning (SFT)** learns to generate reasoning and semantic actions from human-verified Game408 annotations.
+2. **Action execution training** supplies the teacher's intent and compares student actions under that fixed intent. Correctness-constrained GRPO encourages valid implementations of the intended operation.
+3. **Local on-policy distillation (OPD)** lets the student act in the game. When the quality of recent decisions falls below the sliding-window threshold, a stage-specific teacher jointly supervises reasoning and actions on the student's own trajectory.
+
+![GameHunter pipeline, from supervised fine-tuning to execution training and local joint distillation](docs/assets/gamehunter-pipeline.webp)
+
+## Evaluation protocol
+
+Agents start from a Game408-Val checkpoint and interact with the game to reach the corresponding objectives. Game-level measures and decision-level scores answer different questions.
+
+| Game-level metric | How it is measured |
+| --- | --- |
+| **Score** | Compute the completion rate for each game's checkpoint-stage and achievement goals, then average the rates equally across games. |
+| **Efficiency** | Effective actions divided by all actions. Necessary navigation, evidence collection, and tests supported by available evidence count as effective. |
+| **Time** | Mean latency from model input to action completion. |
+
+For each decision, an LLM judge examines the frame, task state, available action history, and retrieved memories **as they were before the action**. It grades the model's reasoning and semantic tool call on the seven criteria below. Each applicable, assessable criterion receives an integer from **0 to 5** with supporting evidence.
+
+| Group | Criterion | What earns full credit |
+| --- | --- | --- |
+| Action | Action Selection | The operation fits the subgoal and known constraints and can advance the task or test a hypothesis. |
+| Action | Target Grounding | The call identifies the right object or equivalent control, including both endpoints of a drag when needed. |
+| Reasoning | Logical Validity | The key inference follows from available facts and justified assumptions. |
+| Reasoning | Trajectory Consistency | The reasoning matches the current branch, prior outcomes, and remaining prerequisites. |
+| Reasoning | Clue Use | The reasoning explains how the available clues support the choice or rule out alternatives. |
+| Reasoning | Memory Recall | The reasoning recalls an earlier relevant fact accurately and connects it to the decision. |
+| Reasoning | Action Judgment | The reasoning identifies the operation's prerequisites and treats unverified effects as expectations. |
+
+When all seven criteria can be scored, the normalized step score is the raw total divided by **35**. For the overall report, each criterion is averaged over the applicable and assessable steps and converted to a percentage. **Action** averages its two criterion percentages, and **Reasoning** averages its five.
+
+![Two Game408 scoring examples from The Legend of Skye, showing pre-action evidence, recorded actions, and criterion scores](docs/assets/game408-step-scoring.webp)
+
+In the first example above, the blowgun is a valid choice and the bubble is the correct target. The reasoning loses one point on Action Judgment because the interface confirms the command is available while the bubble's path is still unverified. The resulting step score is **34/35**.
+
+## Playtest and releases
+
+The browser playtest contains 12 decisions from five recorded games. Pick a game, inspect the pre-action frame and optional clues, then compare your choice with the recorded action and the next recorded frame. The game-selection artwork comes from the respective Steam listings.
 
 | Resource | Status |
 | --- | --- |
-| Project website and interactive demo | Available |
+| Project site and playtest | Available |
 | Evaluation and training code | Planned |
 | GameHunter model weights | Planned |
 | Game408 dataset and annotations | Planned |
-| Public model leaderboard and submissions | Planned |
+| Public leaderboard and submissions | Planned |
 
-## Preview and deploy
+To preview the static site locally, run `python -m http.server 8000 --directory docs` from the repository root and open [localhost:8000](http://localhost:8000). GitHub Pages serves `main:/docs`.
 
-From the repository root, run `python -m http.server 8000 --directory docs` and open [localhost:8000](http://localhost:8000). The website is plain HTML, CSS, and JavaScript. GitHub Pages publishes `main:/docs`.
-
-## License and figure credits
-
-The website code is provided under the [MIT License](LICENSE). See [figure and recording credits](docs/assets/NOTICE.md) for the paper figures, game footage, and scope of the license.
+The website code is released under the [MIT License](LICENSE). See the [figure, recording, and Steam artwork credits](docs/assets/NOTICE.md).

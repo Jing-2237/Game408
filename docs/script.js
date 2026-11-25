@@ -32,6 +32,7 @@ const picker = element("case-picker");
 const caseCount = element("case-count");
 const player = element("player");
 const caseGame = element("case-game");
+const caseSteam = element("case-steam");
 const caseTitle = element("case-title");
 const caseGoal = element("case-goal");
 const stepPicker = element("step-picker");
@@ -54,6 +55,7 @@ const translatable = [
   ["data-zh", "textContent"],
   ["data-zh-alt", "alt"],
   ["data-zh-aria", "ariaLabel"],
+  ["data-zh-href", "href"],
 ].flatMap(([attribute, field]) =>
   [...document.querySelectorAll(`[${attribute}]`)].map((node) => ({
     node,
@@ -95,10 +97,10 @@ function buttonWithLabel(className, label) {
 const caseButtons = gameCases.map((gameCase, index) => {
   const button = buttonWithLabel("case-option", "");
   const image = document.createElement("img");
-  image.src = framePath(gameCase.id, gameCase.steps[0].id);
+  image.src = `assets/steam/${gameCase.id}.webp`;
   image.alt = "";
-  image.width = 234;
-  image.height = 120;
+  image.width = 600;
+  image.height = 900;
   image.loading = "lazy";
   button.append(image, document.createElement("span"));
   button.addEventListener("click", () => {
@@ -165,6 +167,7 @@ function renderDecision() {
   const copy = translations[language];
   caseTitle.textContent = gameCase.title[language];
   caseGame.textContent = gameCase.game[language];
+  caseSteam.href = `https://store.steampowered.com/app/${gameCase.steamAppId}/`;
   caseGoal.textContent = gameCase.goal[language];
   observation.textContent = step.observation[language];
   memoryText.textContent = step.memory[language];

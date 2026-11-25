@@ -5,6 +5,7 @@
 const gameCases = [
   {
     id: "darkside",
+    steamAppId: 368390,
     game: ["The Darkside Detective", "暗面侦探"],
     title: ["The door in the attic", "阁楼里的暗门"],
     goal: ["Find the route Alice could have taken out of the house.", "找出 Alice 可能是从哪里离开房子的。"],
@@ -37,6 +38,7 @@ const gameCases = [
   },
   {
     id: "planet",
+    steamAppId: 2014470,
     game: ["The Abandoned Planet", "被遗忘的星球"],
     title: ["Offerings in the ruins", "遗迹里的供物机关"],
     goal: ["Use the carvings and the mechanism’s feedback to find a way through the ruins.", "用刻纹和机关的反馈判断如何穿过遗迹。"],
@@ -81,6 +83,7 @@ const gameCases = [
   },
   {
     id: "orwell",
+    steamAppId: 491950,
     game: ["Orwell: Keeping an Eye On You", "奥威尔：监视你"],
     title: ["Who is Goldfels?", "Goldfels 是谁？"],
     goal: ["Build an identity profile using evidence from two independent sources.", "从两个不同来源取证，补全人物身份档案。"],
@@ -113,6 +116,7 @@ const gameCases = [
   },
   {
     id: "skye",
+    steamAppId: 2314850,
     game: ["The Legend of Skye", "斯凯传说"],
     title: ["Two rings, one bubble", "一个气泡，两个圆环"],
     goal: ["Win the hilltop contest and earn a trophy that can prove Skye’s result.", "赢下山顶比赛，拿到能证明成绩的奖杯。"],
@@ -145,6 +149,7 @@ const gameCases = [
   },
   {
     id: "lucy",
+    steamAppId: 1532710,
     game: ["Lucy Dreaming", "露西之梦"],
     title: ["A recipe for better dreams", "好梦配方"],
     goal: ["Use three remembered recipe requirements to prepare Lucy’s dream box.", "回顾做梦盒的三项配方要求，帮 Lucy 准备好它。"],
