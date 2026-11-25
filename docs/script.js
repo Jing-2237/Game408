@@ -8,6 +8,7 @@ const translations = [
     current: (id) => `Before the action · Record ${id}`,
     corrected: (time) => `Before the action · ${time}`,
     following: (time) => `After the action · ${time}`,
+    followingRecord: (id) => `After the action · Record ${id}`,
     showBefore: "Before",
     showAfter: "Follow-up",
     correct: "Same move as the recording.",
@@ -21,6 +22,7 @@ const translations = [
     current: (id) => `动作前 · 记录 ${id}`,
     corrected: (time) => `动作前 · ${time}`,
     following: (time) => `动作后 · ${time}`,
+    followingRecord: (id) => `动作后 · 记录 ${id}`,
     showBefore: "看动作前",
     showAfter: "看后续画面",
     correct: "和录屏里的动作一致。",
@@ -134,7 +136,8 @@ function renderFrame() {
   const copy = translations[language];
   const record = displayAfter ? `${step.id}-after` : step.id;
   const beforeLabel = step.beforeTime ? copy.corrected(videoTime(step.beforeTime)) : copy.current(step.id);
-  const stateLabel = displayAfter ? copy.following(videoTime(step.afterTime)) : beforeLabel;
+  const afterLabel = step.afterRecord ? copy.followingRecord(step.afterRecord) : copy.following(videoTime(step.afterTime));
+  const stateLabel = displayAfter ? afterLabel : beforeLabel;
   const path = framePath(gameCase.id, record);
   if (frame.getAttribute("src") !== path) frame.src = path;
   frame.alt = `${gameCase.game[language]} · ${stateLabel}`;

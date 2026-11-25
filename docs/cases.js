@@ -1,6 +1,6 @@
 "use strict";
 
-// IDs identify source records. Timestamps identify the reviewed video outcome frames.
+// Outcome frames are identified by a video timestamp or the following source record.
 // Bilingual strings are ordered English, then Simplified Chinese.
 const gameCases = [
   {
@@ -236,6 +236,76 @@ const gameCases = [
         answer: 0,
         reason: ["The companion is interpreting old names. Continuing the dialogue can identify Owlsgard before deciding where to sail.", "同伴正在解读古地名。先听完地图这段对白，才能确定奥尔斯嘉德的位置再决定航向。"],
         result: ["The dialogue identifies the Isle of Owlsgard and points far north on the map.", "对白指出了奥尔斯嘉德岛，并说明它位于地图的北方远处。"],
+      },
+    ],
+  },
+  {
+    id: "whispers",
+    steamAppId: 631570,
+    game: ["Whispers of a Machine", "Whispers of a Machine"],
+    title: ["Footprints on Mimir Road", "密米尔路上的脚印"],
+    goal: ["Check whether the path by the planting beds contains a trace matching Karl’s boots.", "检查花圃旁的小路上是否有与 Karl 的靴子匹配的痕迹。"],
+    steps: [
+      {
+        id: 161, afterRecord: 162,
+        observation: ["The scanner is in BLADE SHAPE mode. Its frame is on the right side of the road.", "扫描器处于 BLADE SHAPE 模式，扫描框在道路右侧。"],
+        memory: ["Plant traces on Karl’s boots led Vera to the planting beds near Mimir Road.", "Vera 从 Karl 靴子上的植物痕迹追查到密米尔路边的花圃。"],
+        options: [
+          ["Switch to SMART SCAN in the sample bar", "在扫描器上方切换到 SMART SCAN"],
+          ["Keep comparing the ground with the blade shape", "继续用刀刃样本对照地面"],
+          ["Close the scanner and leave the road", "关闭扫描器，离开小路"],
+        ],
+        answer: 0,
+        reason: ["The saved blade pattern is for a different kind of evidence. SMART SCAN surveys the area for traces before Vera tests a specific match.", "刀刃样本针对的是另一类证据。先用 SMART SCAN 调查地面，再做针对性的匹配。"],
+        result: ["The scanner changes to SMART SCAN. It still points at the right side of the road.", "扫描器切到了 SMART SCAN，扫描框仍在道路右侧。"],
+      },
+      {
+        id: 162, afterRecord: 163,
+        observation: ["SMART SCAN is active, but the frame is away from the purple-flowered bed and its path.", "SMART SCAN 已开启，但扫描框还没覆盖紫花花圃和旁边的小路。"],
+        memory: ["The boot’s plant traces point to the beds. The path beside them is where someone would have walked.", "靴子上的植物痕迹指向花圃。花圃旁的小路是人会经过的位置。"],
+        options: [
+          ["Leave the lens where it is", "让扫描框停在原地"],
+          ["Drag the lens onto the path beside the purple flowers", "将扫描框拖到紫花旁的小路"],
+          ["Scan the wall of the building for footprints", "在建筑墙面上找脚印"],
+        ],
+        answer: 1,
+        reason: ["The relevant surface is the path beside the bed. Moving the scanner there tests the location indicated by the earlier plant clue.", "这条小路是脚印可能留下的位置。把扫描框移过去，就能检查植物线索指向的地方。"],
+        result: ["The lens stops beside the bed. There is no analysis result on screen yet.", "扫描框停在花圃旁，画面上还没有分析结果。"],
+      },
+      {
+        id: 163, afterRecord: 164,
+        observation: ["The lens is beside the purple-flowered bed. BOOT PRINT is available in the saved samples.", "扫描框已对准紫花花圃旁，样本栏中有 BOOT PRINT。"],
+        memory: ["Vera has a saved pattern from Karl’s boots. She is checking a possible track on the path.", "Vera 保存了 Karl 的靴印样本，现在要核对路上的疑似痕迹。"],
+        options: [
+          ["Select BLADE SHAPE to compare the track", "切回 BLADE SHAPE 对照痕迹"],
+          ["Move the scanner away before making a comparison", "还没比对就移走扫描框"],
+          ["Select BOOT PRINT while the frame remains on the path", "保持扫描框位置，选择 BOOT PRINT"],
+        ],
+        answer: 2,
+        reason: ["The saved boot print is the reference that can test this ground trace. The frame is already on the intended patch of path.", "足迹应与已保存的靴印样本比对，扫描框已经对准要检查的路面。"],
+        result: ["The scanner reports a matching pattern.", "扫描器显示图案匹配。"],
+      },
+    ],
+  },
+  {
+    id: "perjury",
+    steamAppId: 1919600,
+    game: ["Paper Perjury", "Paper Perjury"],
+    title: ["Two accounts of the tools", "关于开锁工具的两份证词"],
+    goal: ["Test Hana’s account of what happened to the lockpicks after the entry.", "核对 Hana 关于进入房间后如何处理开锁工具的说法。"],
+    steps: [
+      {
+        id: 38, afterRecord: 39,
+        observation: ["Ms. Lear’s statement is selected in the case file. It describes a tall person carrying lockpicks.", "案卷已选中 Lear 女士的证词，其中描述了一名拿着开锁工具的高个子。"],
+        memory: ["Hana said she had already put her lockpicks back into her hair after using them.", "Hana 说，用完开锁工具后，她已经把工具放回头发里。"],
+        options: [
+          ["Present Ms. Lear’s statement", "出示 Lear 女士的证词"],
+          ["Close the case file and accept Hana’s account", "关闭案卷，接受 Hana 的说法"],
+          ["Present Justina’s police ID", "出示 Justina 的警员证"],
+        ],
+        answer: 0,
+        reason: ["The witness saw someone holding the tools at a point when Hana says hers were put away. Presenting that statement puts the discrepancy in front of Hana.", "Hana 说此时工具已收起，目击证词却提到有人拿着工具。出示证词可以当面核对这个矛盾。"],
+        result: ["Justina says what happened in the room was more than a simple robbery.", "Justina 指出，房间里发生的事并非一场简单的盗窃。"],
       },
     ],
   },

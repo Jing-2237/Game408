@@ -68,7 +68,7 @@ When all seven criteria can be scored, the normalized step score is the raw tota
 
 The leaderboard reproduces the paper's Game408-Val comparison table. Overall, action, and reasoning views can be sorted independently. Human play is shown as a reference.
 
-The browser playtest contains 14 decisions from six recorded games. Inspect the pre-action frame and earlier clues, then compare your choice with the reference action, its reasoning, and the recorded outcome. The [playtest review](PLAYTEST.md) lists the source records and corrected frame alignments.
+The task browser contains 18 decisions from eight recorded games. Inspect the pre-action frame and earlier clues, then compare your choice with the reference action, its reasoning, and the recorded outcome. The [playtest review](PLAYTEST.md) lists the records and frame alignments.
 
 | Resource | Status |
 | --- | --- |
