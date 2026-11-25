@@ -56,7 +56,6 @@ img { display: block; width: 100%; height: auto; }
 .hero { --hero-height: max(calc(100svh - 3.8rem), 42vw); overflow: hidden; border-bottom: 1px solid var(--line); background: #140d19; }
 .hero-stage { position: relative; height: var(--hero-height); overflow: hidden; border-bottom: 1px solid #9a624d; }
 .hero-frame { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: max(100%, calc(var(--hero-height) * 2.10035)); container-type: inline-size; }
-.hero-mascot { position: absolute; left: clamp(1rem, 5vw, 6rem); bottom: 5%; width: clamp(6rem, 17vw, 14rem); filter: drop-shadow(0 .33rem .55rem #000c) drop-shadow(0 0 .85rem #ed996d50); pointer-events: none; }
 .hero-titleplate { position: absolute; inset: 80% 34.2% 2% 33.3%; display: grid; place-items: center; }
 .hero-titleplate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 49% 10%, #352325, #150e13 74%); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 94%, transparent); border-block: 1px solid #95644f63; }
 .hero-copy { padding: 1.5rem .25rem 1.55rem; text-align: center; container-type: inline-size; }
@@ -75,6 +74,15 @@ img { display: block; width: 100%; height: auto; }
   }
 }
 .hero-deck { margin-inline: auto; color: var(--ink); font: 700 clamp(.5rem, 3.25cqi, 1.8rem)/1.25 var(--display); white-space: nowrap; }
+main :is(h2, h3, h4, .hero-deck strong, .criteria dt, .scoring-example figcaption strong, .reasoning-panel dt, .frame-clues dt, .case-explanation dt)::before {
+  content: "";
+  display: inline-block;
+  width: min(.9em, 2.65rem);
+  height: min(.9em, 2.65rem);
+  margin-inline-end: .32em;
+  vertical-align: -.08em;
+  background: url("assets/mascot/guide.webp") center / contain no-repeat;
+}
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .48rem; margin-top: .95rem; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.55rem; padding: .55rem .9rem; border: 1px solid transparent; border-radius: .14rem; font-size: .9rem; font-weight: 680; line-height: 1.25; text-decoration: none; }
 .primary { background: var(--cta); border-color: #d1505e; color: #fff5ef; }
@@ -116,8 +124,6 @@ img { display: block; width: 100%; height: auto; }
 .paper-figure figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1rem; padding-top: .6rem; color: var(--muted); font-size: .9rem; }
 
 .playtest { border-block: 1px solid var(--line); background: radial-gradient(ellipse at 50% -40%, #331929 0%, #17111b 57%); }
-.arena-heading { display: flex; align-items: end; gap: clamp(.85rem, 2.2vw, 2rem); }
-.arena-heading img { width: clamp(3.7rem, 9vw, 7rem); filter: drop-shadow(0 .3rem .5rem #0009); }
 .case-picker { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: .6rem; margin-bottom: 1.15rem; }
 .case-option { display: grid; grid-template-rows: auto 1fr; text-align: left; padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: .14rem; background: var(--panel); }
 .case-option:hover { border-color: var(--gold); }
@@ -147,10 +153,9 @@ img { display: block; width: 100%; height: auto; }
 .frame-actions .text-button { padding: 0; font-size: inherit; }
 .decision { min-width: 0; padding: clamp(.85rem, 2.2vw, 1.35rem); }
 .reasoning-panel { margin-bottom: 1.05rem; padding: .65rem .85rem .9rem; background: #211825; border: 1px solid #634351; }
-.reasoning-heading { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 2.65rem; border-bottom: 1px solid #573b49; padding-bottom: .5rem; margin-bottom: .65rem; }
+.reasoning-heading { border-bottom: 1px solid #573b49; padding-bottom: .5rem; margin-bottom: .65rem; }
 .reasoning-heading h4 { color: var(--ink); font-size: 1.06rem; }
 .reasoning-panel .reasoning-heading h4 { margin: 0; }
-.reasoning-heading img { width: 2.7rem; }
 .reasoning-panel dl, .frame-clues { display: grid; gap: .7rem; }
 .frame-clues { padding: .95rem clamp(.7rem, 2vw, 1.25rem) 1.15rem; background: #17121b; border-top: 1px solid var(--line); }
 .reasoning-panel dt, .frame-clues dt { color: var(--gold); font-size: .86rem; font-weight: 690; }
@@ -204,7 +209,6 @@ img { display: block; width: 100%; height: auto; }
 
 @media (max-aspect-ratio: 4/3) {
   .hero h1 { font-size: min(8.3cqw, 18vw); }
-  .hero-mascot { inset: 1rem 1rem auto auto; width: clamp(5.5rem, 21vw, 8.25rem); }
 }
 @media (max-width: 64rem) {
   .wrap { width: calc(100% - 2.5rem); }
