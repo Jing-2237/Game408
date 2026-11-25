@@ -2,11 +2,11 @@
 
 **长程叙事游戏世界中从线索到动作的深度推理**
 
-[项目主页](https://jing-2237.github.io/Game408/) · [排行榜](https://jing-2237.github.io/Game408/#leaderboard) · [任务浏览](https://jing-2237.github.io/Game408/#arena) · [English](README.md)
+[项目主页](https://jing-2237.github.io/Game408/) · [评测规则](#评测规则) · [任务浏览](https://jing-2237.github.io/Game408/#arena) · [代码目录](#代码目录) · [English](README.md)
 
 ![Game408 论文 teaser](docs/assets/game408-cover.webp)
 
-在叙事游戏里，一条当时用不上的线索，可能决定数个场景后该打开哪扇门、提交哪份证据。Game408 评测智能体能否召回早先的线索，把它和当前画面联系起来，再落实为一次具体操作。基准以可停下来检查线索的二维叙事和解谜游戏为主。
+智能体能否想起几个场景前见过的线索，并据此决定下一步？Game408 在二维叙事和解谜游戏中评测这个问题。每轮从带有明确目标的剧情存档点开始，既记录目标是否完成，也检查每一步动作能否由当时掌握的证据支持。
 
 ## 数据集
 
@@ -73,11 +73,24 @@ GameHunter 是论文提出的视觉语言智能体。学生模型基于 **Qwen3.
 | 资源 | 状态 |
 | --- | --- |
 | 项目主页与交互试玩 | 已上线 |
-| 评测与训练代码 | 待发布 |
+| 评测、训练与数据处理 | 已提供占位接口和配置示例 |
 | GameHunter 权重 | 待发布 |
 | Game408 数据集及标注 | 待发布 |
 | 公开结果提交 | 待开放 |
 
-在仓库根目录运行 `python -m http.server 8000 --directory docs`，即可打开[本地预览](http://localhost:8000)。GitHub Pages 从 `main:/docs` 发布。
+## 代码目录
+
+| 路径 | 后续接入内容 |
+| --- | --- |
+| [`evaluation/`](evaluation/) | 评测入口、单存档运行、游戏环境适配、评分与汇总。 |
+| [`training/`](training/) | 训练入口和数据读取接口。 |
+| [`models/`](models/) | GameHunter 模型与智能体加载接口。 |
+| [`data/`](data/) | 标注处理和存档清单准备。 |
+| [`configs/`](configs/) | 路径留空的评测与训练配置样例。 |
+| [`docs/`](docs/) | 主页、游戏素材与经审校的试玩片段。 |
+
+Python 占位函数会抛出 `NotImplementedError`，可直接把函数体替换为正式实现。
+
+在仓库根目录运行 `python -m http.server 8000 --directory docs`，即可打开[本地预览](http://localhost:8000)。
 
 主页代码采用 [MIT 许可证](LICENSE)。论文插图、录屏截图和 Steam 封面的来源见[素材署名](docs/assets/NOTICE.md)。

@@ -116,9 +116,7 @@ const caseButtons = gameCases.map((gameCase, index) => {
   image.width = 600;
   image.height = 900;
   image.loading = "lazy";
-  const label = document.createElement("span");
-  label.append(document.createElement("strong"), document.createElement("small"));
-  button.append(image, label);
+  button.append(image, document.createElement("span"));
   button.addEventListener("click", () => {
     if (caseIndex === index) {
       caseTitle.focus();
@@ -214,8 +212,7 @@ function renderDecision() {
   choices.replaceChildren(...options);
   for (const [index, button] of caseButtons.entries()) {
     const entry = gameCases[index];
-    button.querySelector("strong").textContent = entry.title[language];
-    button.querySelector("small").textContent = entry.game[language];
+    button.lastElementChild.textContent = entry.game[language];
     button.setAttribute("aria-pressed", String(index === caseIndex));
   }
   renderOutcome();

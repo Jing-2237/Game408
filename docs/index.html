@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Game408: Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds. Explore the evaluation protocol and recorded tasks.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#0e0a10">
   <meta property="og:title" content="Game408 · From clues to actions">
   <meta property="og:description" content="Play through decisions from real Game408 recordings.">
   <meta property="og:image" content="https://jing-2237.github.io/Game408/assets/game408-cover.webp">
   <title>Game408 · From clues to actions</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="preload" href="assets/fonts/barlow-condensed-800-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <script src="cases.js" defer></script>
   <script src="script.js" defer></script>
@@ -19,7 +20,7 @@
   <a class="skip" href="#main" data-zh="跳到正文">Skip to content</a>
   <header class="masthead" id="top">
     <div class="wrap masthead-inner">
-      <a class="wordmark" href="#top">Game408<span>.</span></a>
+      <a class="wordmark" href="#top">Game<span>408</span></a>
       <nav aria-label="Main navigation" data-zh-aria="主导航">
         <a href="#protocol" data-zh="评测规则">Protocol</a>
         <a href="#arena" data-zh="任务浏览">Tasks</a>
@@ -40,11 +41,11 @@
           <img class="hero-art" src="assets/game408-cover.webp" width="1800" height="857" fetchpriority="high" alt="Game408 paper teaser showing the benchmark’s narrative games." data-zh-alt="Game408 论文 teaser，展示基准收录的叙事游戏。">
         </div>
         <div class="hero-copy">
-          <h1 id="hero-title">Game408</h1>
+          <h1 id="hero-title">Game<span>408</span></h1>
           <p class="hero-deck" data-zh="Game408：长程叙事游戏世界中从线索到动作的深度推理">Game408: Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds</p>
           <div class="hero-actions">
-            <a class="button primary" href="#protocol" data-zh="评测规则">Evaluation protocol</a>
-            <a class="button secondary" href="#arena" data-zh="浏览任务">Browse tasks</a>
+            <a class="button primary" href="#arena" data-zh="进入任务台">Browse tasks</a>
+            <a class="button secondary" href="#protocol" data-zh="评测规则">Evaluation protocol</a>
             <a class="button secondary" href="#benchmark" data-zh="游戏目录">Game catalog</a>
           </div>
         </div>
@@ -60,14 +61,25 @@
     <section class="wrap research" id="protocol">
       <div class="section-heading">
         <h2 data-zh="评测规则">Evaluation protocol</h2>
-        <p data-zh="Game408-Val 在 12 款留出游戏的 83 个存档点上评测。完成率按游戏统计，单步评审只使用动作前的证据。">Game408-Val evaluates 83 checkpoints from 12 held-out games. Completion is measured per game. Step judgments use the evidence available before each action.</p>
+        <p data-zh="从剧情存档点开始，记录智能体怎样找线索、选动作，以及能否达成该阶段的目标。Game408-Val 有 12 款留出游戏和 83 个存档点。">Each run starts at a story checkpoint with a defined goal. Game408-Val covers 83 checkpoints across 12 held-out games.</p>
       </div>
-      <div class="criteria">
-        <article><h3 data-zh="任务完成">Task completion</h3><p data-zh="先算每款游戏的阶段目标与成就目标完成率，再等权平均。效率和平均耗时单独报告。">Average each game's stage and achievement completion rate with equal weight. Report efficiency and mean latency separately.</p></article>
-        <article><h3 data-zh="动作 · 2 项">Action · 2 criteria</h3><p data-zh="分别评动作选择和目标定位。例如拖对了钥匙，却放到错误的锁上，目标定位记 0 分。">Score operation and target separately. A correct key dragged to the wrong lock gets zero for target grounding.</p></article>
-        <article><h3 data-zh="推理 · 5 项">Reasoning · 5 criteria</h3><p data-zh="评逻辑、轨迹一致性、线索、记忆和动作判断。七项适用时，每项 0–5 分，单步总分除以 35。">Check logic, trajectory consistency, clues, memory, and judgment. With all seven criteria applicable, each is worth 0–5 and the total is divided by 35.</p></article>
+      <div class="protocol-layout">
+        <div>
+          <dl class="criteria">
+            <div><dt data-zh="任务完成">Completion</dt><dd data-zh="先算每款游戏的阶段目标与成就目标完成率，再对游戏等权平均。有效动作比例和平均耗时单独报告。">Compute objective completion per game, then average across games. Report the effective-action rate and mean latency separately.</dd></div>
+            <div><dt data-zh="动作 · 2 项">Action · 2 criteria</dt><dd data-zh="分别评动作选择和目标定位。选对钥匙却拖到错的锁，目标定位记 0 分。">Score the operation and its target separately. Dragging the correct key onto the wrong lock earns zero for target grounding.</dd></div>
+            <div><dt data-zh="推理 · 5 项">Reasoning · 5 criteria</dt><dd data-zh="依据动作前的证据评逻辑、轨迹、线索、记忆和动作判断。七项均可评时，每项满分 5 分，总分除以 35。">Judge logic, trajectory, clue use, recall, and action judgment using pre-action evidence. When all seven criteria apply, divide the raw total by 35.</dd></div>
+          </dl>
+          <a class="figure-link" href="https://github.com/Jing-2237/Game408#evaluation-protocol" data-zh="完整评分细则" data-zh-href="https://github.com/Jing-2237/Game408/blob/main/README.zh-CN.md#评测规则">Read the full rubric</a>
+        </div>
+        <figure class="scoring-example">
+          <img src="assets/cases/lamplight-414.webp" width="1360" height="765" loading="lazy" alt="The orange book stands out on the shelf in Lamplight City." data-zh-alt="《灯火之城》里，一本红橙色书斜放在书架上。">
+          <figcaption>
+            <strong data-zh="《灯火之城》 · 决策 414">Lamplight City · Decision 414</strong>
+            <p data-zh="证人说书的颜色像炖菜香料。厨房查到红橙色；回到书架，玩家检查了颜色相符的书。">A witness compared the book’s color to stew spices. The player checked the spices in the kitchen, then inspected the red-orange book on the shelf.</p>
+          </figcaption>
+        </figure>
       </div>
-      <a class="button secondary" href="https://github.com/Jing-2237/Game408#evaluation-protocol" data-zh="GitHub 评测细则" data-zh-href="https://github.com/Jing-2237/Game408/blob/main/README.zh-CN.md#评测规则">Full scoring rubric on GitHub</a>
     </section>
 
     <section class="playtest" id="arena" aria-labelledby="arena-title">
@@ -104,7 +116,7 @@
             <div class="decision">
               <p id="observation" class="observation"></p>
               <details id="memory" class="memory">
-                <summary data-zh="查看先前线索">Review earlier evidence</summary>
+                <summary data-zh="先前线索">Earlier evidence</summary>
                 <p id="memory-text"></p>
               </details>
               <h4 id="question" tabindex="-1" data-zh="下一步怎么做？">What would you do next?</h4>
@@ -112,8 +124,8 @@
               <p id="feedback" class="feedback" role="status"></p>
               <div class="case-explanation" id="case-explanation" hidden>
                 <dl>
-                  <div><dt data-zh="为什么这样做">Why this move</dt><dd id="case-reason"></dd></div>
-                  <div><dt data-zh="录屏里的结果">Recorded outcome</dt><dd id="case-result"></dd></div>
+                  <div><dt data-zh="动作依据">Reasoning</dt><dd id="case-reason"></dd></div>
+                  <div><dt data-zh="实录结果">Recorded outcome</dt><dd id="case-result"></dd></div>
                 </dl>
               </div>
               <div class="decision-actions">
@@ -123,7 +135,7 @@
               </div>
             </div>
           </div>
-          <p class="player-note"><span data-zh="截图和参考动作来自真实录屏。选项为试玩编写，每案节选了若干决策。">Screenshots and reference moves come from recorded play. Choices are written for this demo, and cases skip intervening actions.</span> <a class="figure-link" href="https://github.com/Jing-2237/Game408/blob/main/PLAYTEST.md" data-zh="查看审校记录">See the review notes</a></p>
+          <p class="player-note"><span data-zh="场景与参考动作来自游戏实录，试玩选项为网页编写。">The scenes and reference actions come from game recordings. The alternatives are written for the site.</span> <a class="figure-link" href="https://github.com/Jing-2237/Game408/blob/main/PLAYTEST.md" data-zh="查看审校记录">Review notes</a></p>
         </article>
         </div>
       </div>
@@ -131,12 +143,12 @@
 
     <section class="wrap research" id="benchmark">
       <div class="section-heading">
-        <h2 data-zh="评测基准">The benchmark</h2>
-        <p data-zh="Game408 以可暂停的二维叙事与解谜游戏为主。评测从剧情存档点开始，观察模型如何逐屏搜索、回顾证据并采取离散动作。">Game408 starts agents at story checkpoints in mostly 2D narrative and puzzle games. They can inspect screens, revisit clues, and take one discrete action at a time.</p>
+        <h2 data-zh="游戏目录">Game catalog</h2>
+        <p data-zh="从证词交叉核对到道具组合，54 款游戏提供不同的取证和解谜任务。右侧 12 款游戏用于独立评测。">The catalog covers 54 games, with tasks ranging from cross-checking testimony to combining inventory items. The 12 titles on the right are held out for evaluation.</p>
       </div>
       <figure class="paper-figure">
         <a href="assets/game408-steam-mosaic.webp" target="_blank" rel="noopener"><img src="assets/game408-steam-mosaic.webp" width="2822" height="890" loading="lazy" alt="Steam cover mosaic with 42 training games on the left and 12 evaluation games on the right." data-zh-alt="Steam 封面拼贴，左侧 42 款为训练游戏，右侧 12 款为评测游戏。"></a>
-        <figcaption><span data-zh="左侧七列为 42 款训练游戏，右侧两列为 12 款评测游戏。">The left seven columns are 42 training games. The right two are 12 evaluation games.</span> <a class="figure-link" href="https://github.com/Jing-2237/Game408/blob/main/GAME_CATALOG.md" data-zh="查看游戏名单">View game list</a> <a class="figure-link" href="https://github.com/Jing-2237/Game408#evaluation-protocol" data-zh="阅读完整评测规则" data-zh-href="https://github.com/Jing-2237/Game408/blob/main/README.zh-CN.md#评测规则">Read the evaluation protocol</a></figcaption>
+        <figcaption><span data-zh="42 款训练游戏 · 12 款评测游戏">42 training games · 12 evaluation games</span> <a class="figure-link" href="https://github.com/Jing-2237/Game408/blob/main/GAME_CATALOG.md" data-zh="查看完整名单">Full game list</a></figcaption>
       </figure>
     </section>
 
@@ -186,11 +198,10 @@
       <div class="wrap">
         <div class="section-heading">
           <h2 data-zh="发布计划">Releases</h2>
-          <p><cite data-zh="Game408：长程叙事游戏世界中从线索到动作的深度推理">Game408: Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds</cite></p>
         </div>
         <ul class="resource-list">
           <li><a href="https://github.com/Jing-2237/Game408" data-zh="主页源码与试玩">Website source and playtest</a><span data-zh="已发布">Available</span></li>
-          <li><span data-zh="评测与训练代码">Evaluation and training code</span><span data-zh="待发布">Planned</span></li>
+          <li><a href="https://github.com/Jing-2237/Game408#repository-layout" data-zh="评测、训练与数据处理代码" data-zh-href="https://github.com/Jing-2237/Game408/blob/main/README.zh-CN.md#代码目录">Evaluation, training, and data preparation</a><span data-zh="占位文件已就位">Scaffold available</span></li>
           <li><span data-zh="GameHunter 模型权重">GameHunter model weights</span><span data-zh="待发布">Planned</span></li>
           <li><span data-zh="Game408 数据与标注">Game408 dataset and annotations</span><span data-zh="待发布">Planned</span></li>
         </ul>
@@ -199,7 +210,7 @@
   </main>
 
   <footer class="wrap footer">
-    <a class="wordmark" href="#top">Game408<span>.</span></a>
+    <a class="wordmark" href="#top">Game<span>408</span></a>
     <a href="https://github.com/Jing-2237/Game408/blob/main/docs/assets/NOTICE.md" data-zh="素材出处">Figure and recording credits</a>
   </footer>
 </body>

@@ -2,11 +2,11 @@
 
 **Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds**
 
-[Project page](https://jing-2237.github.io/Game408/) · [Leaderboard](https://jing-2237.github.io/Game408/#leaderboard) · [Task browser](https://jing-2237.github.io/Game408/#arena) · [简体中文](README.zh-CN.md)
+[Project page](https://jing-2237.github.io/Game408/) · [Evaluation protocol](#evaluation-protocol) · [Task browser](https://jing-2237.github.io/Game408/#arena) · [Code layout](#repository-layout) · [简体中文](README.zh-CN.md)
 
 ![Game408 paper teaser](docs/assets/game408-cover.webp)
 
-In narrative games, a clue found in one scene can determine which door to open or which evidence to submit several scenes later. Game408 tests whether an agent can recall the clue, connect it to the current scene, and carry out a concrete action. The benchmark focuses on mostly 2D games where players can take the time to inspect evidence before making a move.
+Can an agent use a clue found several scenes ago to choose its next move? Game408 studies this question in 2D narrative and puzzle games. Each run starts from a story checkpoint with a defined goal. The evaluation tracks whether the agent reaches that goal and whether its individual decisions use the evidence it had at the time.
 
 ## Dataset
 
@@ -73,11 +73,24 @@ The task browser contains 18 decisions from eight recorded games. Inspect the pr
 | Resource | Status |
 | --- | --- |
 | Project site and playtest | Available |
-| Evaluation and training code | Planned |
+| Evaluation, training, and data preparation | Placeholder interfaces and example configs |
 | GameHunter model weights | Planned |
 | Game408 dataset and annotations | Planned |
 | Public submissions | Planned |
 
-To preview the static site locally, run `python -m http.server 8000 --directory docs` from the repository root and open [localhost:8000](http://localhost:8000). GitHub Pages serves `main:/docs`.
+## Repository layout
+
+| Path | Planned implementation |
+| --- | --- |
+| [`evaluation/`](evaluation/) | Benchmark runner, checkpoint rollouts, environment adapter, and scoring. |
+| [`training/`](training/) | Training entry point and dataset loading. |
+| [`models/`](models/) | GameHunter model and agent loader. |
+| [`data/`](data/) | Dataset and checkpoint manifest preparation. |
+| [`configs/`](configs/) | Example evaluation and training settings with blank paths. |
+| [`docs/`](docs/) | Published website and reviewed task excerpts. |
+
+The Python files are replacement points. Their stubs raise `NotImplementedError` until the project implementation is added.
+
+To preview the website locally, run `python -m http.server 8000 --directory docs` from the repository root and open [localhost:8000](http://localhost:8000).
 
 The website code is released under the [MIT License](LICENSE). See the [figure, recording, and Steam artwork credits](docs/assets/NOTICE.md).

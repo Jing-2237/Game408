@@ -20,3 +20,5 @@ The game-selection artwork uses the official Steam library capsules for these re
 | `steam/perjury.webp` | [Paper Perjury](https://store.steampowered.com/app/1919600/) |
 
 The MIT License covers the website code. The paper figures, dataset excerpts, and third-party artwork, screenshots, and trademarks are outside that license. Third-party material remains subject to the rights of its respective owners.
+
+Barlow Condensed is distributed under the [SIL Open Font License](fonts/OFL.txt).
