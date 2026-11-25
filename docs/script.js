@@ -12,7 +12,7 @@ const translations = [
     showAfter: "Follow-up",
     correct: "Same move as the recording.",
     wrong: "The recording took a different action. Review the scene or try another move.",
-    revealed: "Recorded action",
+    revealed: "Recorded action revealed.",
   },
   {
     title: "Game408 · 从线索到行动",
@@ -25,7 +25,7 @@ const translations = [
     showAfter: "看后续画面",
     correct: "和录屏里的动作一致。",
     wrong: "录屏里采取了另一步。可以再看看画面和线索，或试试其他动作。",
-    revealed: "录屏动作",
+    revealed: "已显示实录操作。",
   },
 ];
 
@@ -42,15 +42,17 @@ const frameLabel = element("frame-label");
 const frameLink = element("frame-link");
 const toggleFrame = element("toggle-frame");
 const observation = element("observation");
-const memory = element("memory");
 const memoryText = element("memory-text");
 const hintText = element("hint-text");
+const caseFocus = element("case-focus");
 const question = element("question");
 const choices = element("choices");
 const feedback = element("feedback");
 const explanation = element("case-explanation");
+const caseAction = element("case-action");
 const caseReason = element("case-reason");
 const caseResult = element("case-result");
+const caseConfirmation = element("case-confirmation");
 const reveal = element("reveal");
 const next = element("next");
 const replay = element("replay");
@@ -153,15 +155,16 @@ function renderOutcome() {
     button.setAttribute("aria-disabled", String(Boolean(shown)));
   }
   if (shown) {
-    const prefix = matched ? copy.correct : `${copy.revealed}${language ? "：" : ": "}${step.options[step.answer][language]}${language ? "。" : "."}`;
-    feedback.textContent = prefix;
+    feedback.textContent = matched ? copy.correct : copy.revealed;
   } else {
     feedback.textContent = incorrect ? copy.wrong : "";
   }
   feedback.dataset.state = shown ? "right" : incorrect ? "wrong" : "";
   explanation.hidden = !shown;
+  caseAction.textContent = shown ? step.options[step.answer][language] : "";
   caseReason.textContent = shown ? step.reason[language] : "";
   caseResult.textContent = shown ? step.result[language] : "";
+  caseConfirmation.textContent = shown ? step.confirmation[language] : "";
   reveal.hidden = Boolean(shown);
   toggleFrame.hidden = !shown;
   const last = state.stepIndex === gameCase.steps.length - 1;
@@ -188,6 +191,7 @@ function renderDecision() {
   observation.textContent = step.observation[language];
   memoryText.textContent = step.memory[language];
   hintText.textContent = step.hint[language];
+  caseFocus.textContent = step.focus[language];
   const steps = gameCase.steps.map((_, index) => {
     const button = buttonWithLabel("step-button", String(index + 1));
     button.setAttribute("aria-label", copy.step(index + 1, gameCase.steps.length));
@@ -220,7 +224,6 @@ function changeDecision(index, focusTarget) {
   progress[caseIndex].stepIndex = index;
   const { step, attempt } = active();
   displayAfter = Boolean(attempt?.revealed || attempt?.selected === step.answer);
-  memory.open = false;
   renderDecision();
   focusTarget.focus();
 }

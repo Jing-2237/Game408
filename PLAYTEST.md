@@ -2,7 +2,7 @@
 
 The review checks each scene’s pre-action observation and earlier evidence against the selected action, the source annotation, and the pictured result. Outcome references are video times measured in seconds or observation record numbers.
 
-The reasoning hints use the pre-action state. The explanation shown after answering connects those clues to the recorded operation and identifies what changed in the follow-up frame.
+The reasoning panel lists earlier evidence, a suggested inference, and what to check in the pre-action frame. After answering, compare the recorded action and its explanation with the visible change in the follow-up frame.
 
 | Game | Record | Evidence and recorded action | Outcome reference |
 | --- | ---: | --- | ---: |
@@ -52,6 +52,7 @@ The reasoning hints use the pre-action state. The explanation shown after answer
 - In the Darkside rune sequence, the annotation for record 70 describes a lower-left spiral, which is already lit in the frame. The playtest uses the directly visible right-side placement at 339.0–341.0 seconds and pairs it with the corresponding template evidence.
 - The other examples use selected annotation records and screenshots. The review checks the recorded input against the visible change and omits examples where intermediate actions could not be resolved from the frames.
 - The Crimson Diamond records 210 and 215 already show the loupe’s result. The task browser uses images 209 and 214, respectively, for the pre-action frames.
+- In Home Safety Hotline, the follow-up frames for Dan and David show the selected categories and still display the Submit button. Sending the response happens in later records.
 - In Old Skies, each search option groups entering the full name and submitting the search. Both inputs are recorded separately.
 - The straight-left hat slot is empty in Follow the Meaning frame 272 and filled in frame 273. The task browser uses those frames for the action recorded as 273.
 

@@ -11,9 +11,9 @@
   <title>Game408 · From clues to actions</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
   <link rel="preload" href="assets/fonts/barlow-condensed-800-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=5">
-  <script src="cases.js?v=5" defer></script>
-  <script src="script.js?v=4" defer></script>
+  <link rel="stylesheet" href="style.css?v=6">
+  <script src="cases.js?v=6" defer></script>
+  <script src="script.js?v=6" defer></script>
   <script src="leaderboard.js?v=2" defer></script>
 </head>
 <body>
@@ -41,6 +41,7 @@
           <img class="hero-art" src="assets/game408-cover.webp" width="1800" height="857" fetchpriority="high" alt="Game408 paper teaser showing the benchmark’s narrative games." data-zh-alt="Game408 论文 teaser，展示基准收录的叙事游戏。">
           <div class="hero-titleplate"><h1 id="hero-title">Game<span>408</span></h1></div>
         </div>
+        <img class="hero-mascot" src="assets/mascot/home.webp" width="411" height="420" alt="">
       </div>
       <div class="wrap">
         <div class="hero-copy">
@@ -61,33 +62,18 @@
     </section>
 
     <section class="wrap research" id="protocol">
-      <div class="protocol-heading">
-        <div class="section-heading">
-          <h2 data-zh="评测规则">Evaluation protocol</h2>
-          <p data-zh="Game408-Val 有 12 款留出游戏和 83 个剧情存档点。智能体从存档点开始，根据手头线索尝试完成对应的阶段目标。">Game408-Val covers 83 story checkpoints across 12 held-out games. Each run starts from a saved state and asks the agent to use the available evidence to reach its stage objective.</p>
-        </div>
-        <img class="protocol-mascot" src="assets/mascot/planning.webp" width="351" height="360" alt="" loading="lazy">
+      <div class="section-heading">
+        <h2 data-zh="评测规则">Evaluation protocol</h2>
+        <p data-zh="Game408-Val · 12 款留出游戏，83 个剧情存档点">Game408-Val · 12 held-out games, 83 story checkpoints</p>
       </div>
       <div class="protocol-layout">
         <div>
           <dl class="criteria">
-            <div><dt data-zh="任务表现">Task performance</dt><dd data-zh="对每款游戏先算阶段目标和成就目标的完成率，再对各款游戏等权平均。效率是有效动作占总动作的比例，必要导航、取证和有依据的试探都可计入。耗时从模型接收输入算到动作完成，按动作取平均。">Average each game’s completion rate over stage and achievement objectives, giving every game equal weight. Efficiency is the fraction of effective actions, including necessary navigation, evidence collection, and justified tests. Time is mean latency from model input to action completion.</dd></div>
-            <div><dt data-zh="动作 · 2 项">Action · 2 criteria</dt><dd data-zh="动作选择看操作是否契合当前子目标和已有约束。目标定位核对点击对象、拖拽两端、输入框或滚动区域。把对的钥匙拖到错的锁，目标定位为 0 分，动作选择独立评分。">Action selection checks whether the operation fits the subgoal and known constraints. Target grounding checks the clicked object, both ends of a drag, the input field, or the scroll pane. Dragging the right key to the wrong lock scores zero for grounding. Action selection is scored independently.</dd></div>
-            <div>
-              <dt data-zh="推理 · 5 项">Reasoning · 5 criteria</dt>
-              <dd>
-                <p data-zh="评审只看动作之前可用的画面、任务状态、操作历史和记忆。五项推理各看一件事。">The judge uses the frame, task state, action history, and memories available before the move.</p>
-                <ul>
-                  <li data-zh="逻辑有效性：结论能否从已知事实和有依据的假设推出。">Logical validity checks whether the conclusion follows from the facts and justified assumptions.</li>
-                  <li data-zh="轨迹一致性：有没有延续当前分支、已完成的步骤和剩余前提。">Trajectory consistency checks the current branch, completed steps, and remaining prerequisites.</li>
-                  <li data-zh="线索利用：有没有用画面、对白或谜题规则缩小选项。">Clue use checks how a visual detail, dialogue, or puzzle rule narrows the options.</li>
-                  <li data-zh="记忆召回：有没有准确找回并用上早先仍然适用的信息。">Memory recall checks whether an earlier fact is retrieved accurately and used where it still applies.</li>
-                  <li data-zh="动作判断：有没有用现有证据说明操作前提，并把尚未发生的结果写成预期。">Action judgment checks the prerequisites and whether unverified effects are described as expectations.</li>
-                </ul>
-                <p data-zh="每个适用且可判定的指标为 0–5 分。七项都可评时，动作分除以 10，推理分除以 25，单步总分除以 35。榜单逐项汇总，仅统计该指标适用且可判定的步骤。">Each applicable, assessable criterion receives 0–5. When all seven are scored, divide the action subtotal by 10, reasoning by 25, and the overall step total by 35. The leaderboard aggregates each criterion over the steps where it applies and can be scored.</p>
-              </dd>
-            </div>
+            <div><dt data-zh="任务表现">Task performance</dt><dd data-zh="完成率按游戏等权平均，另报有效动作比例和平均耗时。">Mean completion across games, effective-action rate, and mean action latency.</dd></div>
+            <div><dt data-zh="动作 · 2 项">Action · 2 criteria</dt><dd data-zh="分别评动作选择和目标定位。">Action selection and target grounding are scored separately.</dd></div>
+            <div><dt data-zh="推理 · 5 项">Reasoning · 5 criteria</dt><dd data-zh="按动作前的证据评逻辑、轨迹、线索、记忆和动作判断。">Logic, trajectory, clues, recall, and action judgment use pre-action evidence.</dd></div>
           </dl>
+          <p class="protocol-scale" data-zh="适用且可判定的指标各 0–5 分。七项齐全时，单步满分 35。">0–5 per scorable criterion. A fully scored step has 35 possible points.</p>
           <a class="figure-link" href="https://github.com/Jing-2237/Game408#evaluation-protocol" data-zh="完整评分细则" data-zh-href="https://github.com/Jing-2237/Game408/blob/main/README.zh-CN.md#评测规则">Read the full rubric</a>
         </div>
         <figure class="scoring-example">
@@ -103,11 +89,7 @@
           </div>
           <figcaption>
             <strong data-zh="《灯火之城》 · 决策 414">Lamplight City · Decision 414</strong>
-            <dl class="example-analysis">
-              <div><dt data-zh="动作前的证据">Evidence before the move</dt><dd data-zh="Amélie 只说书的颜色像她放进炖菜的香料。Miles 在较早的决策 408 检查过厨房香料罐，提到红色和橙色。这条记忆把书架上可考虑的候选缩小到相近颜色的书。">Amélie describes the cover by comparing it to the spices in her stew. In decision 408, Miles examines the kitchen jars and describes red and orange shades. Recalling that observation narrows the search to books in that color range.</dd></div>
-              <div><dt data-zh="具体操作">Recorded operation</dt><dd data-zh="决策 414 点击书架上斜放的红橙色《Choice and Consequence》。书脊上的标题用于确认点击的是哪本书，选择依据来自证词和厨房的颜色线索。">Decision 414 inspects the slanted red-orange volume, Choice and Consequence. The visible title identifies the interaction target. The earlier testimony and kitchen observation explain why the player selects it.</dd></div>
-              <div><dt data-zh="画面反馈">Visible feedback</dt><dd data-zh="后续画面仍在书架前，字幕显示 Miles 说这应该就是 Amélie 提到的书。画面确认的是他的判断；在点击之前，颜色相符只支持优先检查这本书。">The follow-up stays on the shelf and shows Miles saying this should be the book Amélie mentioned. Before the click, the matching color supported inspecting the book as a candidate.</dd></div>
-            </dl>
+            <p data-zh="厨房香料的红橙色指向《Choice and Consequence》。检查这本书后，Miles 说它应该就是 Amélie 提到的那本。">The reddish-orange spices point to Choice and Consequence. After inspecting it, Miles says it should be the book Amélie mentioned.</p>
           </figcaption>
         </figure>
       </div>
@@ -133,30 +115,39 @@
             <div class="step-picker" id="step-picker" role="group" aria-label="Decision in this case" data-zh-aria="本案例的决策步骤"></div>
           </div>
           <div class="player-body">
-            <figure class="game-frame">
-              <div class="frame-image"><img id="frame" width="1360" height="765" alt=""></div>
-              <figcaption>
-                <span id="frame-label"></span>
-                <span class="frame-actions">
-                  <button type="button" class="text-button" id="toggle-frame" hidden></button>
-                  <a id="frame-link" href="#" target="_blank" rel="noopener" data-zh="查看大图">Open full image</a>
-                </span>
-              </figcaption>
-            </figure>
+            <div class="case-evidence">
+              <figure class="game-frame">
+                <div class="frame-image"><img id="frame" width="1360" height="765" alt=""></div>
+                <figcaption>
+                  <span id="frame-label"></span>
+                  <span class="frame-actions">
+                    <button type="button" class="text-button" id="toggle-frame" hidden></button>
+                    <a id="frame-link" href="#" target="_blank" rel="noopener" data-zh="查看大图">Open full image</a>
+                  </span>
+                </figcaption>
+              </figure>
+              <section class="reasoning-panel" aria-labelledby="reasoning-title">
+                <div class="reasoning-heading">
+                  <h4 id="reasoning-title" data-zh="推理提示">Reasoning hint</h4>
+                  <img src="assets/mascot/planning.webp" width="351" height="360" alt="" loading="lazy">
+                </div>
+                <dl>
+                  <div><dt data-zh="前情线索">Earlier evidence</dt><dd id="memory-text"></dd></div>
+                  <div><dt data-zh="怎么推理">How to reason</dt><dd id="hint-text"></dd></div>
+                  <div><dt data-zh="画面核对点">What to look for</dt><dd id="case-focus"></dd></div>
+                </dl>
+              </section>
+            </div>
             <div class="decision">
               <p id="observation" class="observation"></p>
-              <details id="memory" class="memory">
-                <summary data-zh="推理提示">Reasoning hint</summary>
-                <p id="memory-text"></p>
-                <p id="hint-text"></p>
-              </details>
               <h4 id="question" tabindex="-1" data-zh="下一步怎么做？">What would you do next?</h4>
               <div id="choices" class="choices" role="group" aria-labelledby="question"></div>
               <p id="feedback" class="feedback" role="status"></p>
               <div class="case-explanation" id="case-explanation" hidden>
                 <dl>
+                  <div><dt data-zh="实录操作">Recorded action</dt><dd id="case-action"></dd></div>
                   <div><dt data-zh="动作依据">Reasoning</dt><dd id="case-reason"></dd></div>
-                  <div><dt data-zh="实录结果">Recorded outcome</dt><dd id="case-result"></dd></div>
+                  <div><dt data-zh="实录结果">Recorded outcome</dt><dd id="case-result"></dd><dd id="case-confirmation"></dd></div>
                 </dl>
               </div>
               <div class="decision-actions">

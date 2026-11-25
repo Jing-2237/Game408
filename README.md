@@ -60,9 +60,9 @@ When all seven criteria can be scored, the normalized step score is the raw tota
 
 **Worked example from Lamplight City.** Amélie remembers a book the color of her stew spices. After checking the reddish and orange spices, the player inspects the matching copy of *Choice and Consequence*. The earlier testimony and kitchen observation support the action. Inspecting the correct volume grounds the choice, and Miles's subsequent remark provides feedback.
 
-| Before the action | Recorded outcome |
-| --- | --- |
-| ![The red-orange book among darker volumes](docs/assets/cases/lamplight-414.webp) | ![Miles identifies the possible match to Amélie's description](docs/assets/cases/lamplight-414-after.webp) |
+![Equal-size frames from Lamplight City. Left, the cursor points at the red-orange book. Right, Miles says it should be the book Amélie mentioned.](docs/assets/lamplight-414-comparison.webp)
+
+[Before the action, at left](docs/assets/cases/lamplight-414.webp) · [Recorded outcome, at right](docs/assets/cases/lamplight-414-after.webp)
 
 ## Leaderboard and tasks
 

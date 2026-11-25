@@ -60,9 +60,9 @@ GameHunter 是论文提出的视觉语言智能体。学生模型基于 **Qwen3.
 
 **《灯火之城》的评测示例。** Amélie 记得那本书的颜色像炖菜香料。玩家在厨房核对出红橙色线索后，在书架上检查颜色对应的《Choice and Consequence》。早先证词与厨房观察支持动作选择，点中对应的书考察目标定位，迈尔斯随后关于这本书的对白提供了结果反馈。
 
-| 动作前画面 | 录屏中的结果 |
-| --- | --- |
-| ![深色书册之间的红橙色书](docs/assets/cases/lamplight-414.webp) | ![迈尔斯认为这应该是 Amélie 提到的书](docs/assets/cases/lamplight-414-after.webp) |
+![《灯火之城》的等大对照画面。左图光标停在红橙色书脊上，右图显示迈尔斯的判断。](docs/assets/lamplight-414-comparison.webp)
+
+[左图 · 动作前](docs/assets/cases/lamplight-414.webp) · [右图 · 实录反馈](docs/assets/cases/lamplight-414-after.webp)
 
 ## 排行榜与任务
 
