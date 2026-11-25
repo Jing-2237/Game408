@@ -56,7 +56,7 @@ img { display: block; width: 100%; height: auto; }
 .hero { --hero-height: max(calc(100svh - 3.8rem), 42vw); overflow: hidden; border-bottom: 1px solid var(--line); background: #140d19; }
 .hero-stage { position: relative; height: var(--hero-height); overflow: hidden; border-bottom: 1px solid #9a624d; }
 .hero-frame { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: max(100%, calc(var(--hero-height) * 2.10035)); container-type: inline-size; }
-.hero-mascot { position: absolute; left: clamp(1rem, 5vw, 6rem); bottom: 5%; width: clamp(5rem, 13vw, 11rem); filter: drop-shadow(0 .33rem .6rem #000c); pointer-events: none; }
+.hero-mascot { position: absolute; left: clamp(1rem, 5vw, 6rem); bottom: 5%; width: clamp(6rem, 17vw, 14rem); filter: drop-shadow(0 .33rem .55rem #000c) drop-shadow(0 0 .85rem #ed996d50); pointer-events: none; }
 .hero-titleplate { position: absolute; inset: 80% 34.2% 2% 33.3%; display: grid; place-items: center; }
 .hero-titleplate::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 49% 10%, #352325, #150e13 74%); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 94%, transparent); border-block: 1px solid #95644f63; }
 .hero-copy { padding: 1.5rem .25rem 1.55rem; text-align: center; container-type: inline-size; }
@@ -116,6 +116,8 @@ img { display: block; width: 100%; height: auto; }
 .paper-figure figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1rem; padding-top: .6rem; color: var(--muted); font-size: .9rem; }
 
 .playtest { border-block: 1px solid var(--line); background: radial-gradient(ellipse at 50% -40%, #331929 0%, #17111b 57%); }
+.arena-heading { display: flex; align-items: end; gap: clamp(.85rem, 2.2vw, 2rem); }
+.arena-heading img { width: clamp(3.7rem, 9vw, 7rem); filter: drop-shadow(0 .3rem .5rem #0009); }
 .case-picker { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: .6rem; margin-bottom: 1.15rem; }
 .case-option { display: grid; grid-template-rows: auto 1fr; text-align: left; padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: .14rem; background: var(--panel); }
 .case-option:hover { border-color: var(--gold); }
@@ -144,14 +146,15 @@ img { display: block; width: 100%; height: auto; }
 .frame-actions { display: flex; align-items: baseline; justify-content: flex-end; flex-wrap: wrap; gap: .15rem .7rem; text-align: right; }
 .frame-actions .text-button { padding: 0; font-size: inherit; }
 .decision { min-width: 0; padding: clamp(.85rem, 2.2vw, 1.35rem); }
-.observation { margin-bottom: .85rem; font-size: .96rem; line-height: 1.55; }
-.reasoning-panel { padding: .85rem clamp(.7rem, 2vw, 1.25rem) 1.15rem; background: #19131e; border-top: 1px solid var(--line); }
-.reasoning-heading { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 2.7rem; }
+.reasoning-panel { margin-bottom: 1.05rem; padding: .65rem .85rem .9rem; background: #211825; border: 1px solid #634351; }
+.reasoning-heading { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 2.65rem; border-bottom: 1px solid #573b49; padding-bottom: .5rem; margin-bottom: .65rem; }
 .reasoning-heading h4 { color: var(--ink); font-size: 1.06rem; }
-.reasoning-heading img { width: 3.3rem; }
-.reasoning-panel dl { display: grid; gap: .7rem; }
-.reasoning-panel dt { color: var(--gold); font-size: .86rem; font-weight: 690; }
-.reasoning-panel dd { margin-top: .13rem; color: var(--muted); font-size: .93rem; line-height: 1.55; }
+.reasoning-panel .reasoning-heading h4 { margin: 0; }
+.reasoning-heading img { width: 2.7rem; }
+.reasoning-panel dl, .frame-clues { display: grid; gap: .7rem; }
+.frame-clues { padding: .95rem clamp(.7rem, 2vw, 1.25rem) 1.15rem; background: #17121b; border-top: 1px solid var(--line); }
+.reasoning-panel dt, .frame-clues dt { color: var(--gold); font-size: .86rem; font-weight: 690; }
+.reasoning-panel dd, .frame-clues dd { margin-top: .15rem; color: var(--muted); font-size: .94rem; line-height: 1.53; }
 #hint-text { white-space: pre-line; }
 .decision h4 { margin-bottom: .48rem; line-height: 1.35; }
 .choices { display: grid; gap: .4rem; }
@@ -201,7 +204,7 @@ img { display: block; width: 100%; height: auto; }
 
 @media (max-aspect-ratio: 4/3) {
   .hero h1 { font-size: min(8.3cqw, 18vw); }
-  .hero-mascot { inset: 1rem 1rem auto auto; width: clamp(4.5rem, 16vw, 7rem); }
+  .hero-mascot { inset: 1rem 1rem auto auto; width: clamp(5.5rem, 21vw, 8.25rem); }
 }
 @media (max-width: 64rem) {
   .wrap { width: calc(100% - 2.5rem); }

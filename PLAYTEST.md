@@ -2,7 +2,7 @@
 
 The review checks each scene’s pre-action observation and earlier evidence against the selected action, the source annotation, and the pictured result. Outcome references are video times measured in seconds or observation record numbers.
 
-The reasoning panel lists earlier evidence, a suggested inference, and what to check in the pre-action frame. After answering, compare the recorded action and its explanation with the visible change in the follow-up frame.
+The reasoning panel lists earlier evidence and explains how it informs the choice. Notes under the image point to details in the pre-action frame. The answer panel compares the recorded action with the alternatives and shows what the follow-up frame confirms.
 
 | Game | Record | Evidence and recorded action | Outcome reference |
 | --- | ---: | --- | ---: |

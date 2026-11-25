@@ -1,7 +1,7 @@
 # Figure, recording, and Steam artwork credits
 
 - `game408-cover.webp` — Game408 teaser from the project paper.
-- `mascot/home.webp`, `mascot/planning.webp`, and `mascot/guide.webp` — Game408 pixel knight artwork supplied by the project authors.
+- `mascot/home.webp`, `mascot/tasks.webp`, `mascot/planning.webp`, and `mascot/guide.webp` — Game408 pixel knight artwork supplied by the project authors.
 - `lamplight-414-comparison.webp` — equal-size comparison of the two Lamplight City gameplay frames used in the README.
 - `game408-steam-mosaic.webp` — composition of the 54 official Steam store capsules, in the paper's game split. See the [game catalog](../../GAME_CATALOG.md) for individual sources.
 - `gamehunter-pipeline.webp` — GameHunter training pipeline from the project's paper.

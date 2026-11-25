@@ -11,9 +11,9 @@
   <title>Game408 · From clues to actions</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
   <link rel="preload" href="assets/fonts/barlow-condensed-800-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=6">
-  <script src="cases.js?v=6" defer></script>
-  <script src="script.js?v=6" defer></script>
+  <link rel="stylesheet" href="style.css?v=7">
+  <script src="cases.js?v=7" defer></script>
+  <script src="script.js?v=7" defer></script>
   <script src="leaderboard.js?v=2" defer></script>
 </head>
 <body>
@@ -97,8 +97,9 @@
 
     <section class="playtest" id="arena" aria-labelledby="arena-title">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading arena-heading">
           <h2 id="arena-title" data-zh="任务浏览">Task browser</h2>
+          <img src="assets/mascot/tasks.webp" width="340" height="331" alt="">
         </div>
         <div class="arena-layout">
         <div class="case-picker" id="case-picker" role="group" aria-label="Choose a game" data-zh-aria="选择游戏"></div>
@@ -126,20 +127,23 @@
                   </span>
                 </figcaption>
               </figure>
+              <dl class="frame-clues">
+                <div><dt data-zh="动作前的画面核对点">What to look for before acting</dt><dd id="case-focus"></dd></div>
+                <div><dt data-zh="选动作之前">Before you choose</dt><dd id="case-check"></dd></div>
+              </dl>
+            </div>
+            <div class="decision">
               <section class="reasoning-panel" aria-labelledby="reasoning-title">
                 <div class="reasoning-heading">
-                  <h4 id="reasoning-title" data-zh="推理提示">Reasoning hint</h4>
+                  <h4 id="reasoning-title" data-zh="推理提示">Reasoning guide</h4>
                   <img src="assets/mascot/planning.webp" width="351" height="360" alt="" loading="lazy">
                 </div>
                 <dl>
+                  <div><dt data-zh="动作前的画面">Before the action</dt><dd id="observation"></dd></div>
                   <div><dt data-zh="前情线索">Earlier evidence</dt><dd id="memory-text"></dd></div>
                   <div><dt data-zh="怎么推理">How to reason</dt><dd id="hint-text"></dd></div>
-                  <div><dt data-zh="画面核对点">What to look for</dt><dd id="case-focus"></dd></div>
                 </dl>
               </section>
-            </div>
-            <div class="decision">
-              <p id="observation" class="observation"></p>
               <h4 id="question" tabindex="-1" data-zh="下一步怎么做？">What would you do next?</h4>
               <div id="choices" class="choices" role="group" aria-labelledby="question"></div>
               <p id="feedback" class="feedback" role="status"></p>
@@ -147,6 +151,7 @@
                 <dl>
                   <div><dt data-zh="实录操作">Recorded action</dt><dd id="case-action"></dd></div>
                   <div><dt data-zh="动作依据">Reasoning</dt><dd id="case-reason"></dd></div>
+                  <div><dt data-zh="为什么不选其他动作">Why the alternatives fall short</dt><dd id="case-comparison"></dd></div>
                   <div><dt data-zh="实录结果">Recorded outcome</dt><dd id="case-result"></dd><dd id="case-confirmation"></dd></div>
                 </dl>
               </div>

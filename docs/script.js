@@ -45,12 +45,13 @@ const observation = element("observation");
 const memoryText = element("memory-text");
 const hintText = element("hint-text");
 const caseFocus = element("case-focus");
-const question = element("question");
+const caseCheck = element("case-check");
 const choices = element("choices");
 const feedback = element("feedback");
 const explanation = element("case-explanation");
 const caseAction = element("case-action");
 const caseReason = element("case-reason");
+const caseComparison = element("case-comparison");
 const caseResult = element("case-result");
 const caseConfirmation = element("case-confirmation");
 const reveal = element("reveal");
@@ -118,11 +119,11 @@ const caseButtons = gameCases.map((gameCase, index) => {
   button.append(image, document.createElement("span"));
   button.addEventListener("click", () => {
     if (caseIndex === index) {
-      caseTitle.focus();
+      focusCase();
       return;
     }
     caseIndex = index;
-    changeDecision(progress[index].stepIndex, caseTitle);
+    changeDecision(progress[index].stepIndex);
   });
   return button;
 });
@@ -163,6 +164,7 @@ function renderOutcome() {
   explanation.hidden = !shown;
   caseAction.textContent = shown ? step.options[step.answer][language] : "";
   caseReason.textContent = shown ? step.reason[language] : "";
+  caseComparison.textContent = shown ? step.comparison[language] : "";
   caseResult.textContent = shown ? step.result[language] : "";
   caseConfirmation.textContent = shown ? step.confirmation[language] : "";
   reveal.hidden = Boolean(shown);
@@ -192,11 +194,12 @@ function renderDecision() {
   memoryText.textContent = step.memory[language];
   hintText.textContent = step.hint[language];
   caseFocus.textContent = step.focus[language];
+  caseCheck.textContent = step.check[language];
   const steps = gameCase.steps.map((_, index) => {
     const button = buttonWithLabel("step-button", String(index + 1));
     button.setAttribute("aria-label", copy.step(index + 1, gameCase.steps.length));
     button.setAttribute("aria-pressed", String(index === state.stepIndex));
-    button.addEventListener("click", () => changeDecision(index, question));
+    button.addEventListener("click", () => changeDecision(index));
     return button;
   });
   stepPicker.replaceChildren(...steps);
@@ -220,12 +223,17 @@ function renderDecision() {
   renderOutcome();
 }
 
-function changeDecision(index, focusTarget) {
+function focusCase() {
+  caseTitle.focus({ preventScroll: true });
+  player.scrollIntoView({ block: "start" });
+}
+
+function changeDecision(index) {
   progress[caseIndex].stepIndex = index;
   const { step, attempt } = active();
   displayAfter = Boolean(attempt?.revealed || attempt?.selected === step.answer);
   renderDecision();
-  focusTarget.focus();
+  focusCase();
 }
 
 function renderLanguage() {
@@ -253,10 +261,10 @@ toggleFrame.addEventListener("click", () => {
   renderFrame();
 });
 
-next.addEventListener("click", () => changeDecision(progress[caseIndex].stepIndex + 1, question));
+next.addEventListener("click", () => changeDecision(progress[caseIndex].stepIndex + 1));
 replay.addEventListener("click", () => {
   progress[caseIndex].attempts.clear();
-  changeDecision(0, question);
+  changeDecision(0);
 });
 
 languageButton.addEventListener("click", () => {
