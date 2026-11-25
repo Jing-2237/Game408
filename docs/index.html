@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Game408 is a research benchmark and upcoming model arena for long-horizon reasoning in 2D narrative games.">
+  <meta name="theme-color" content="#151310">
+  <meta property="og:title" content="Game408 | 2D Game Reasoning Arena">
+  <meta property="og:description" content="A benchmark for agents that connect clues, plan actions, and advance long-horizon stories.">
+  <meta property="og:image" content="https://jing-2237.github.io/Game408/assets/game408-cover.webp">
+  <title>Game408 | 2D Game Reasoning Arena</title>
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-zh="跳到正文">Skip to content</a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="Game408"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Game<span>408</span></a>
+      <nav aria-label="Main navigation" data-zh-aria="主导航">
+        <a href="#arena" data-zh="竞技台">Arena</a>
+        <a href="#benchmark" data-zh="基准">Benchmark</a>
+        <a href="#method">GameHunter</a>
+        <a href="#release" data-zh="发布计划">Releases</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" id="language" class="language" hidden lang="zh-CN" aria-label="切换为中文">中文</button>
+        <a class="header-link" href="https://github.com/Jing-2237/Game408">GitHub</a>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow" data-zh="二维游戏推理竞技台">2D Game Reasoning Arena</p>
+          <h1 id="hero-title">Game<span>408</span></h1>
+          <h2 class="tagline" data-zh="从线索到行动">From clues to actions.</h2>
+          <p class="hero-description" data-zh="一个面向长程叙事游戏的模型评测基准。智能体需要记住线索、关联证据，再用离散操作推进剧情。">A benchmark for agents that connect evidence across scenes, plan their next move, and advance the story through discrete actions.</p>
+          <div class="buttons">
+            <a class="button primary" href="#arena" data-zh="探索竞技台">Explore the arena</a>
+            <a class="button secondary" href="#benchmark" data-zh="了解基准">Read the benchmark</a>
+          </div>
+        </div>
+        <figure class="hero-art">
+          <div class="art-frame">
+            <img src="assets/game408-cover.webp" width="1800" height="857" fetchpriority="high" alt="The Game408 knight emerges from a collage of narrative game scenes." data-zh-alt="Game408 的骑士从叙事游戏画面拼图中出现。">
+          </div>
+          <figcaption data-zh="Game408 论文 · 数据集概览">Game408 paper · Dataset overview</figcaption>
+        </figure>
+      </div>
+      <div class="wrap metrics" aria-label="Dataset at a glance" data-zh-aria="数据集概览">
+        <div><strong>54</strong><span data-zh="款游戏">games</span></div>
+        <div><strong>408</strong><span data-zh="个存档点">checkpoints</span></div>
+        <div><strong>24K+</strong><span data-zh="条人工推理与动作标注">human reasoning and action annotations</span></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="arena">
+      <div class="section-heading">
+        <div><p class="eyebrow" data-zh="模型竞技台">The arena</p><h2 data-zh="每一步都有依据">Every move needs a reason.</h2></div>
+        <p data-zh="先体验一个回合制调查任务。你可以随时停下来检查线索，再决定下一步。">Try a short, turn-based investigation. Inspect the room, piece together the evidence, and decide when to act.</p>
+      </div>
+      <div class="arena-card">
+        <div class="arena-bar">
+          <span class="arena-name"><span class="status-dot"></span><span data-zh="档案室谜题">The Archive Lock</span></span>
+          <span class="arena-label" data-zh="互动示例">Interactive demo</span>
+        </div>
+        <div class="arena-body">
+          <div class="scene" aria-label="Illustrated archive room" data-zh-aria="档案室插图">
+            <div class="room-axis" aria-hidden="true"><span>A</span><span>B</span><span>C</span></div>
+            <div class="objects">
+              <button class="object" type="button" data-clue="note" aria-pressed="false" disabled>
+                <span class="object-art note" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span data-zh="值班便签">Shift note</span>
+              </button>
+              <button class="object" type="button" data-clue="ledger" aria-pressed="false" disabled>
+                <span class="object-art ledger" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span data-zh="巡检台账">Ledger</span>
+              </button>
+              <button class="object" type="button" data-clue="lock" aria-pressed="false" disabled>
+                <span class="object-art lock" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span data-zh="档案柜">Cabinet</span>
+              </button>
+            </div>
+          </div>
+          <div class="case">
+            <h3 data-zh="线索记录">Evidence log</h3>
+            <p id="clue-progress" class="clue-progress">0 of 3 objects inspected</p>
+            <ul id="notes" class="notes" aria-live="polite">
+              <li data-zh="选择场景中的物件开始调查。">Select an object in the room to start investigating.</li>
+            </ul>
+            <form id="puzzle">
+              <label for="code" data-zh="档案柜密码">Cabinet code</label>
+              <div class="form-row">
+                <input id="code" type="text" inputmode="numeric" maxlength="3" pattern="[0-9]{3}" placeholder="000" autocomplete="off" required disabled>
+                <button class="button primary" id="unlock" type="submit" data-zh="解锁" disabled>Unlock</button>
+              </div>
+            </form>
+            <p id="feedback" role="status"></p>
+            <button class="text-button" id="reset" type="button" data-zh="重新开始" disabled>Reset demo</button>
+            <noscript>Enable JavaScript to play the demo. 启用 JavaScript 即可体验示例。</noscript>
+          </div>
+        </div>
+        <div class="leaderboard">
+          <div>
+            <span class="eyebrow" data-zh="模型排行榜">Model leaderboard</span>
+            <p data-zh="尚无公开排名。评测工具、数据和提交流程将随首批资源发布。">Public rankings will open after the evaluation tools, data, and submission instructions are released.</p>
+          </div>
+          <a class="button secondary" href="#release" data-zh="查看发布计划">Release status</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section benchmark" id="benchmark">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="eyebrow" data-zh="Game408 评测基准">The benchmark</p><h2 data-zh="在剧情存档点检验推理">Reasoning at story checkpoints.</h2></div>
+          <p data-zh="Game408 以可暂停的二维叙事与解谜游戏为主。模型可以逐屏调查、回顾早期线索，再选择一次具体操作。">Game408 mainly uses 2D narrative and puzzle games where agents can inspect screens, revisit earlier clues, and choose one concrete action at a time.</p>
+        </div>
+        <figure class="paper-figure">
+          <a href="assets/game408-catalog.webp" target="_blank" rel="noopener" aria-label="Open the full game catalog image in a new tab" data-zh-aria="在新标签页打开完整游戏目录图"><img src="assets/game408-catalog.webp" width="1900" height="959" loading="lazy" alt="Cover art organized into 42 training games and 12 evaluation games." data-zh-alt="按 42 款训练游戏和 12 款评测游戏分组的封面。"></a>
+          <figcaption data-zh="Game408 游戏目录 · 42 款用于训练，12 款用于评测。点击查看大图。">The Game408 catalog · 42 training games and 12 evaluation games. Select the figure to enlarge.</figcaption>
+        </figure>
+        <div class="criteria">
+          <article><h3 data-zh="任务完成">Task completion</h3><p data-zh="智能体能否达成存档点对应的剧情阶段目标？">Can the agent accomplish the stage objective from a given checkpoint?</p></article>
+          <article><h3 data-zh="动作质量">Action quality</h3><p data-zh="选中的操作、目标和参数能否落实当前意图？">Do the operation, target, and parameters carry out the intended move?</p></article>
+          <article><h3 data-zh="推理质量">Reasoning quality</h3><p data-zh="决策是否有当前观察、历史线索和交互反馈的支持？">Does the decision draw on the current observation, earlier evidence, and interaction feedback?</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="method">
+      <div class="section-heading">
+        <div><p class="eyebrow" data-zh="论文方法">Research method</p><h2>GameHunter</h2></div>
+        <p data-zh="论文提出的智能体先用人工标注学习生成推理与动作，再集中训练动作执行，最后在自主轨迹上联合蒸馏推理与动作。">The agent starts with supervised learning on human annotations, focuses on execution under teacher-provided intent, and then jointly distills reasoning and actions on autonomous trajectories.</p>
+      </div>
+      <figure class="paper-figure">
+        <a href="assets/gamehunter-pipeline.webp" target="_blank" rel="noopener" aria-label="Open the full GameHunter figure in a new tab" data-zh-aria="在新标签页打开完整 GameHunter 方法图"><img src="assets/gamehunter-pipeline.webp" width="2000" height="925" loading="lazy" alt="The three GameHunter training stages: supervised fine-tuning, stage-wise decoupling, and local distillation on autonomous trajectories." data-zh-alt="GameHunter 的三个训练阶段：监督微调、阶段解耦，以及自主轨迹上的局部蒸馏。"></a>
+        <figcaption data-zh="GameHunter 训练流程。点击查看大图。">The GameHunter training pipeline. Select the figure to enlarge.</figcaption>
+      </figure>
+    </section>
+
+    <section class="release section" id="release">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="eyebrow" data-zh="发布计划">Releases</p><h2 data-zh="项目资源">Project resources</h2></div>
+          <p><cite data-zh="Game408：长程叙事游戏世界中从线索到动作的深度推理">Game408: Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds</cite><span data-zh="。后续资源将在项目仓库更新。">. Follow the repository for release updates.</span></p>
+        </div>
+        <ul class="resource-list">
+          <li><a href="https://github.com/Jing-2237/Game408" data-zh="主页源码与互动示例">Website source and demo</a><span class="available" data-zh="已发布">Available</span></li>
+          <li><span data-zh="评测与训练代码">Evaluation and training code</span><span data-zh="待发布">Planned</span></li>
+          <li><span data-zh="GameHunter 模型权重">GameHunter model weights</span><span data-zh="待发布">Planned</span></li>
+          <li><span data-zh="Game408 数据与标注">Game408 dataset and annotations</span><span data-zh="待发布">Planned</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer">
+    <a class="brand" href="#top" aria-label="Game408"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Game<span>408</span></a>
+    <a href="https://github.com/Jing-2237/Game408">GitHub</a>
+  </footer>
+</body>
+</html>
