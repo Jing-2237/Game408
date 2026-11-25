@@ -11,9 +11,9 @@
   <title>Game408 · From clues to actions</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
   <link rel="preload" href="assets/fonts/barlow-condensed-800-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=3">
-  <script src="cases.js?v=3" defer></script>
-  <script src="script.js?v=3" defer></script>
+  <link rel="stylesheet" href="style.css?v=4">
+  <script src="cases.js?v=4" defer></script>
+  <script src="script.js?v=4" defer></script>
   <script src="leaderboard.js?v=2" defer></script>
 </head>
 <body>
@@ -36,11 +36,13 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-inner">
-        <div class="hero-stage">
+      <div class="hero-stage">
+        <div class="hero-frame">
           <img class="hero-art" src="assets/game408-cover.webp" width="1800" height="857" fetchpriority="high" alt="Game408 paper teaser showing the benchmark’s narrative games." data-zh-alt="Game408 论文 teaser，展示基准收录的叙事游戏。">
           <div class="hero-titleplate"><h1 id="hero-title">Game<span>408</span></h1></div>
         </div>
+      </div>
+      <div class="wrap">
         <div class="hero-copy">
           <p class="hero-deck" lang="en"><strong>Deep Reasoning from Clues to Actions in Long-Horizon Narrative Game Worlds</strong></p>
           <div class="hero-actions">
@@ -115,8 +117,9 @@
             <div class="decision">
               <p id="observation" class="observation"></p>
               <details id="memory" class="memory">
-                <summary data-zh="先前线索">Earlier evidence</summary>
+                <summary data-zh="推理提示">Reasoning hint</summary>
                 <p id="memory-text"></p>
+                <p id="hint-text"></p>
               </details>
               <h4 id="question" tabindex="-1" data-zh="下一步怎么做？">What would you do next?</h4>
               <div id="choices" class="choices" role="group" aria-labelledby="question"></div>
@@ -192,8 +195,7 @@
           <h2 data-zh="发布计划">Releases</h2>
         </div>
         <ul class="resource-list">
-          <li><a href="https://github.com/Jing-2237/Game408" data-zh="主页源码与试玩">Website source and playtest</a><span data-zh="已发布">Available</span></li>
-          <li><a href="https://github.com/Jing-2237/Game408#repository-layout" data-zh="评测、训练与数据处理代码" data-zh-href="https://github.com/Jing-2237/Game408/blob/main/README.zh-CN.md#代码目录">Evaluation, training, and data preparation</a><span data-zh="占位文件已就位">Scaffold available</span></li>
+          <li><a href="https://github.com/Jing-2237/Game408#repository-layout" data-zh="评分示例" data-zh-href="https://github.com/Jing-2237/Game408/blob/main/README.zh-CN.md#代码目录">Scoring example</a></li>
           <li><span data-zh="GameHunter 模型权重">GameHunter model weights</span><span data-zh="待发布">Planned</span></li>
           <li><span data-zh="Game408 数据与标注">Game408 dataset and annotations</span><span data-zh="待发布">Planned</span></li>
         </ul>

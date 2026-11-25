@@ -44,6 +44,7 @@ const toggleFrame = element("toggle-frame");
 const observation = element("observation");
 const memory = element("memory");
 const memoryText = element("memory-text");
+const hintText = element("hint-text");
 const question = element("question");
 const choices = element("choices");
 const feedback = element("feedback");
@@ -186,6 +187,7 @@ function renderDecision() {
   caseGoal.textContent = gameCase.goal[language];
   observation.textContent = step.observation[language];
   memoryText.textContent = step.memory[language];
+  hintText.textContent = step.hint[language];
   const steps = gameCase.steps.map((_, index) => {
     const button = buttonWithLabel("step-button", String(index + 1));
     button.setAttribute("aria-label", copy.step(index + 1, gameCase.steps.length));

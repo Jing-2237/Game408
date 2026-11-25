@@ -14,6 +14,7 @@ const gameCases = [
         id: 66, afterTime: 316,
         observation: ["The attic is dark. There is a broken lamp on the left and a mostly bare wall between the detectives.", "阁楼很暗，左侧有一盏坏灯。两位侦探之间的墙上看不出什么。"],
         memory: ["Alice left no trace at the ordinary exits. The detectives picked up a blacklight bulb and found a page with a doorway drawing.", "普通出口没有 Alice 离开的痕迹。此前拿到了一枚黑光灯泡，还找到一张画着门的纸。"],
+        hint: ["Separate the route Alice might have taken from the method for finding it. The ordinary exits have already been checked, and the drawing gives you a shape to look for. Compare which item can change what is visible on the attic wall while leaving the wall itself intact.", "先分清两个问题：Alice 走的是哪条路，以及怎样才能看见那条路。常规出口已经查过，图纸提供了要找的形状。对照目前的道具，想一想哪个能改变墙面的可见状态，又不需要擦除或破坏墙面。"],
         options: [
           ["Use the paint thinner on the wall", "用稀释剂擦拭墙面"],
           ["Fit the blacklight bulb into the broken lamp", "把黑光灯泡装进坏灯"],
@@ -27,6 +28,7 @@ const gameCases = [
         id: 70, afterTime: 341, beforeTime: 339,
         observation: ["The lower-left square is already lit. On the right, there is an empty space immediately below the top side mark.", "左下角的方形符号已经点亮。门右侧最上方的符号下面还有一个空位。"],
         memory: ["The Strange Page found under the bed shows each mark in its original position around the doorway.", "床底找到的神秘纸页画出了门四周每个符号的原本位置。"],
+        hint: ["Use the paper as a map of positions around the doorway. Orient it using the marks that are already glowing, then look at the first empty position below the mark on the right. Some glyphs share the same strokes, so compare the whole outline and its position together.", "把纸上的图当作门框四周的位置图。先用已经亮起的符号对齐纸张和墙面，再查右侧已亮标记下方第一个空位。有些符号的笔画相似，要同时比较整个轮廓和它在门框上的位置。"],
         options: [
           ["Put a square spiral in the gap on the right", "把方形回旋符号放进右侧空位"],
           ["Try walking through the incomplete door", "试着直接走进尚未补完的门"],
@@ -49,6 +51,7 @@ const gameCases = [
         id: 350, afterTime: 3586.4,
         observation: ["A red flower is selected. The stone basin in front of you has a flower carved into it.", "红花已选中，面前的空石盆刻着一朵花。"],
         memory: ["The basin marked with waves lit up after receiving liquid from the cactus.", "此前把仙人掌汁液倒进刻着波纹的石盆后，那只盆亮了。"],
+        hint: ["The wave basin gives you a rule to test. Its carving described the kind of offering that changed the basin. Apply the same comparison to the flower carving and the items in the current scene. Which pairing keeps the carving and its offering in the same category?", "波纹盆提供了一条可以验证的规则：刻纹提示了让石盆起变化的供物类别。把同样的对照方法用在花形刻纹和当前场景的道具上。哪一组能让刻纹与供物的含义对应起来？"],
         options: [
           ["Use the red flower on the carved basin", "把红花放进这只刻花石盆"],
           ["Save the flower and reuse cactus juice", "留着红花，再用一次仙人掌汁"],
@@ -62,6 +65,7 @@ const gameCases = [
         id: 354, afterTime: 3599.7,
         observation: ["The empty basin bears a flame symbol. A pine cone is selected.", "空石盆刻着火焰符号，当前选中的是松果。"],
         memory: ["The wave and flower basins responded to matching offerings. The flame basin is still empty.", "波纹盆和花纹盆都响应了对应的供物。火焰盆还是空的。"],
+        hint: ["The flame is the intended end state, but the basin is visibly empty. Separate the material that could sustain a flame from the tool that could start one. Then ask what an ignition attempt would have available to act on in the basin at this moment.", "火焰是机关最终需要的状态，但画面里盆内仍然是空的。先分开能维持火焰的材料和能点火的工具，再想一想，如果现在就点火，盆里有没有东西可供点燃。"],
         options: [
           ["Use the flint on the empty basin", "直接用燧石敲击空盆"],
           ["Place the pine cone in the flame basin", "把松果放进刻着火焰的石盆"],
@@ -75,6 +79,7 @@ const gameCases = [
         id: 361, afterTime: 3910.6,
         observation: ["Beyond the basin chamber, a metal door has a circular lock with space for one notch at the top.", "穿过石盆大厅后，金属门中央是一把圆形锁，顶部有一处缺口。"],
         memory: ["The inventory item selected just before this frame is the one-node circular object.", "当前选中的道具是物品栏里的单节点圆形物。"],
+        hint: ["Read the lock and the selected object as two shapes. Compare both the round centers and the position of the single protrusion or cutout. The fit is the next thing you can test from this frame. Whether the whole door moves is still unknown.", "把门锁和选中的道具当成两个要拼合的形状。除了比较圆形主体，还要比较唯一凸点和缺口的位置。眼下能检验的是两者是否合得上，整扇门之后会不会移动还需要看反馈。"],
         options: [
           ["Use the flint on the door panel", "对门板使用燧石"],
           ["Return to the basins to look for another key", "返回石盆大厅寻找另一把钥匙"],
@@ -97,6 +102,7 @@ const gameCases = [
         id: 75, afterTime: 1288,
         observation: ["The profile on the left has no portrait. The Thought’s administrator page displays a photo next to the account name goldfels.", "左侧档案没有头像。The Thought 的管理员资料页把照片与 goldfels 账号并列显示。"],
         memory: ["The investigation has already linked Goldfels to the creation of The Thought. A full first name has yet to be confirmed.", "此前的调查把 Goldfels 和 The Thought 的创立联系在一起。他的名字还有待确认。"],
+        hint: ["The file has a missing portrait and an unconfirmed first name. Treat those as two separate gaps. On the website, check what is displayed on the same card as the goldfels administrator account. An item linked to the account can fill one gap without requiring a guess about the other.", "档案缺少头像，名字也还没有确认。把它们当成两个独立的空缺。检查网页上哪些信息与 goldfels 管理员账号同在一张资料卡上。直接关联到账号的材料可以补齐其中一项，另一项不用靠猜测。"],
         options: [
           ["Submit the administrator photo to Goldfels’s profile", "把管理员照片提交到 Goldfels 档案"],
           ["Record Administrator as Goldfels’s first name", "把 Administrator 记为 Goldfels 的名字"],
@@ -110,6 +116,7 @@ const gameCases = [
         id: 78, afterTime: 1372.7,
         observation: ["The university biography is headed “Prof. A. Goldfels.” The body spells out Abraham Goldfels.", "大学简介标题写着“Prof. A. Goldfels”，正文给出了全名 Abraham Goldfels。"],
         memory: ["A text signed by A. Goldfels refers to students from Stelligan. The profile still contains only a surname.", "一篇 A. Goldfels 署名的文章提过 Stelligan 的学生。当前档案里仍只有姓氏。"],
+        hint: ["Use the reference to Stelligan to check that you are following the right lead. In the university biography, compare the abbreviated heading with the full name in the body. The field you are trying to fill requires the spelling the source actually gives you.", "先用 Stelligan 这条线索核对资料是否接得上。再把大学简介的缩写标题与正文逐字比较。当前要补的是姓名字段，应使用原文实际写出的名字和拼法。"],
         options: [
           ["Enter A as the full first name", "把 A 当作完整名字录入"],
           ["Submit the full name from the university biography", "提交大学简介正文里的全名"],
@@ -132,6 +139,7 @@ const gameCases = [
         id: 408, afterTime: 7478.7,
         observation: ["Miles is in the kitchen. The shelf on the back wall has a row of spice jars.", "迈尔斯站在厨房，后墙的架子上有一排香料罐。"],
         memory: ["Amélie describes the book's color by comparing it with the spices she puts in her stew.", "Amélie 记不清书名，只说那本书的颜色像她做炖菜时用的香料。"],
+        hint: ["Amélie gave Miles a comparison in place of a color name. A book search based on that comparison is underconstrained until he sees the reference object. Look for something in the kitchen that would let him turn her description into a range of colors he can carry back to the shelf.", "Amélie 说的是一个比喻，没有直接给出颜色名称。在看到她用来比较的东西之前，书架上的候选太多。找找厨房里什么能把这个比喻变成具体的色彩范围，方便 Miles 回到书架再核对。"],
         options: [
           ["Inspect the pans hanging from the ceiling", "检查吊在上方的锅"],
           ["Head upstairs before checking the comparison", "先上楼搜查"],
@@ -145,6 +153,7 @@ const gameCases = [
         id: 414, afterTime: 7502.1,
         observation: ["The bedroom bookshelf is shown close up. A red-orange volume leans among several darker books.", "眼前是卧室书架的近景，一本红橙色的书斜靠在几本深色书之间。"],
         memory: ["Amélie compared the cover to stew spices. Miles just confirmed the spices were red or orange.", "Amélie 说书封像炖菜香料。迈尔斯已在厨房核实香料呈红色或橙色。"],
+        hint: ["Carry the result of the kitchen inspection into this close-up. Several titles are readable, but the testimony was about appearance. Scan the spines for the color range already established and use the title to identify the particular candidate you want Miles to inspect.", "把厨房检查得到的色彩范围带到书架特写里。好几本书的书名都能读清，但证词说的是外观。先按查到的颜色筛选书脊，再用书名确认你要让 Miles 检查的是哪一本。"],
         options: [
           ["Inspect the red-orange copy of Choice and Consequence", "查看红橙色的《Choice and Consequence》"],
           ["Pick a dark green book as the match", "把一本深绿色书当成匹配项"],
@@ -167,6 +176,7 @@ const gameCases = [
         id: 148, afterTime: 824,
         observation: ["Lucy is in her bedroom. The camouflage lip balm is selected and the small box is still in the inventory.", "Lucy 在卧室，迷彩润唇膏已选中，小箱子还在物品栏里。"],
         memory: ["A positive dream box calls for a calming rune drawn on the box.", "好梦配方要求在梦境盒上画一个让人平静的符文。"],
+        hint: ["Read the recipe in terms of what each item is for and where it goes. This entry asks for a marking on the box. The currently selected item can be used to draw, and there is a small box in the inventory. Think about which surface the recipe actually names.", "把配方拆成“道具用来做什么”和“用在哪里”两部分。这一条是让你在盒上画出标记。当前选中的道具可以用来画，物品栏里也有一个小盒。再对照配方明确指定的表面。"],
         options: [
           ["Use the lip balm on the pillow", "把润唇膏用在枕头上"],
           ["Use the lip balm on the small box", "用润唇膏在小箱子上画符文"],
@@ -180,6 +190,7 @@ const gameCases = [
         id: 154, afterTime: 844.5,
         observation: ["The box is now by the bed. Lucy has selected the repaired bear, Mr. Fumble.", "梦境盒已经放在床边，Lucy 选中了修好的小熊 Mr. Fumble。"],
         memory: ["In addition to the rune, the recipe needs a comfort item inside the box.", "除了符文，配方还要求把一件能给人安慰的物品放进盒子。"],
+        hint: ["The rune takes care of one part of the recipe. Check what the repaired toy can contribute and compare the location of the box now with the previous step. The recipe distinguishes an item put inside the box from a mark drawn on its outside.", "符文已经满足了配方的一项要求。接下来判断修好的玩具能起什么作用，并比较盒子现在和上一题的位置。配方把放进盒里的物品与画在盒子表面的标记分开了。"],
         options: [
           ["Put the repaired bear into the box by the bed", "把修好的小熊放进床边的梦境盒"],
           ["Set the bear on the bookshelf", "把小熊放上书架"],
@@ -193,6 +204,7 @@ const gameCases = [
         id: 157, afterTime: 853.5,
         observation: ["The joke book is selected. The dream box already holds the bear and has its rune.", "笑话书已选中，梦境盒上已经有符文，里面也放好了小熊。"],
         memory: ["The remaining requirement is a source of inspiration.", "还没满足的是灵感这一项。"],
+        hint: ["Take stock of what has already been added before trying an item. The box has a mark and an object for comfort. For the last requirement, judge each item by what it contains or can inspire, rather than by whether it belongs in a bedroom.", "先盘点盒子里已经有什么，再尝试使用道具。标记有了，安慰物也放进去了。剩下这一项要根据道具的内容或它能激发的想法来判断，不能只看它平时是不是放在卧室。"],
         options: [
           ["Take the bear back out and start over", "把小熊取出，重新准备梦境盒"],
           ["Go to sleep before finishing the box", "不继续准备梦境盒，直接睡觉"],
@@ -215,6 +227,7 @@ const gameCases = [
         id: 77, afterTime: 4054, beforeTime: 4045,
         observation: ["Finn is up by the owl statue. The machine is back below the ledge.", "Finn 已经上到猫头鹰雕像旁，机器又出现在平台下方。"],
         memory: ["Finn tried to reach the statue from below and said it was too high. The stone steps provide access from above.", "Finn 在下方曾说够不到雕像，遗迹有台阶可通到上方。"],
+        hint: ["The attempt from the ground failed on reach. Finn now stands on the ledge, so both his reach and the statue's position relative to the machine have changed. Consider which verb can use that new position to affect the obstacle below without requiring Finn to approach it directly.", "之前在地面上的尝试卡在够不着雕像。Finn 上到平台后，雕像进入了可触及的范围，而且机器就在它下方。比较可选动词，想想哪个能利用这个高差影响下面的机器。"],
         options: [
           ["Go back down and try to reach the statue from the ground", "下去再从地面尝试够雕像"],
           ["Use the Push command on the owl statue from the ledge", "从平台上对猫头鹰雕像使用推的指令"],
@@ -228,6 +241,7 @@ const gameCases = [
         id: 78, afterTime: 4088,
         observation: ["Finn and his companion are looking at a wall map. The current line begins “If I’m not mistaken…”", "Finn 和同伴在看墙上的地图，当前一句对白开头是“如果我没看错……”。"],
         memory: ["The map is labeled with old place names in the ancient language of the owls.", "地图上的古地名是用古猫头鹰语写的。"],
+        hint: ["The map shows more than one possible destination, and the current dialogue is only the beginning of an interpretation. Before choosing a direction, look for a source that can connect one old place name with the modern destination. The person reading alongside Finn is already working on that link.", "地图上有不止一个可能的目的地，而当前这句对白只刚开始解读。决定方向之前，需要先把地图上的一个古地名和实际目的地联系起来。和 Finn 一起看图的人已经在做这一步。"],
         options: [
           ["Continue reading the wall map with the companion", "继续跟同伴读墙上的地图"],
           ["Return to the dock without hearing the interpretation", "不听完解读，直接返回船坞"],
@@ -250,6 +264,7 @@ const gameCases = [
         id: 161, afterRecord: 162,
         observation: ["The scanner is in BLADE SHAPE mode. Its frame is on the right side of the road.", "扫描器处于 BLADE SHAPE 模式，扫描框在道路右侧。"],
         memory: ["Plant traces on Karl’s boots led Vera to the planting beds near Mimir Road.", "Vera 从 Karl 靴子上的植物痕迹追查到密米尔路边的花圃。"],
+        hint: ["Look at the difference between the saved patterns and the scanning mode. One lets you compare a particular specimen, while the other lets you look for traces without assuming their shape. The earlier plant clue narrows the search area. It does not tell you what the scanner will detect on the ground.", "区分存好的样本图案和用来搜索痕迹的模式。一类用于比对特定样本，另一类允许先搜索、再判断。植物痕迹帮你缩小了范围，但地面上究竟有什么还没有查到。"],
         options: [
           ["Switch to SMART SCAN in the sample bar", "在扫描器上方切换到 SMART SCAN"],
           ["Keep comparing the ground with the blade shape", "继续用刀刃样本对照地面"],
@@ -263,6 +278,7 @@ const gameCases = [
         id: 162, afterRecord: 163,
         observation: ["SMART SCAN is active, but the frame is away from the purple-flowered bed and its path.", "SMART SCAN 已开启，但扫描框还没覆盖紫花花圃和旁边的小路。"],
         memory: ["The boot’s plant traces point to the beds. The path beside them is where someone would have walked.", "靴子上的植物痕迹指向花圃。花圃旁的小路是人会经过的位置。"],
+        hint: ["Changing the mode has not moved the scanning window. Use the plants to identify a location, then use the road and flower bed to decide which surface someone would have crossed. The next move should change where the scanner looks before you draw a conclusion from it.", "切换模式没有移动扫描框。先用植物线索找到位置，再看道路和花圃之间，人的脚可能踩在哪一块地面。下一步应先改变扫描范围，然后才有依据解读读数。"],
         options: [
           ["Leave the lens where it is", "让扫描框停在原地"],
           ["Drag the lens onto the path beside the purple flowers", "将扫描框拖到紫花旁的小路"],
@@ -276,6 +292,7 @@ const gameCases = [
         id: 163, afterRecord: 164,
         observation: ["The lens is beside the purple-flowered bed. BOOT PRINT is available in the saved samples.", "扫描框已对准紫花花圃旁，样本栏中有 BOOT PRINT。"],
         memory: ["Vera has a saved pattern from Karl’s boots. She is checking a possible track on the path.", "Vera 保存了 Karl 的靴印样本，现在要核对路上的疑似痕迹。"],
+        hint: ["The frame now covers the ground selected in the previous step. Keep the location fixed and change only the comparison reference. Check which saved pattern came from Karl's boots and which one would test a different kind of mark.", "扫描框已经覆盖上一题选中的地面。保持位置不变，只更换用于比对的样本。回想哪份图案来自 Karl 的靴子，哪份样本检验的是另一类痕迹。"],
         options: [
           ["Select BLADE SHAPE to compare the track", "切回 BLADE SHAPE 对照痕迹"],
           ["Move the scanner away before making a comparison", "还没比对就移走扫描框"],
@@ -298,6 +315,7 @@ const gameCases = [
         id: 38, afterRecord: 39,
         observation: ["Ms. Lear’s statement is selected in the case file. It describes a tall person carrying lockpicks.", "案卷已选中 Lear 女士的证词，其中描述了一名拿着开锁工具的高个子。"],
         memory: ["Hana said she had already put her lockpicks back into her hair after using them.", "Hana 说，用完开锁工具后，她已经把工具放回头发里。"],
+        hint: ["Compare what Hana says she did with the tools and what the file attributes to Ms. Lear. You need the piece of evidence that speaks to the tools' presence at the relevant time. Presenting a competing account lets Justina test it without treating the witness's claim as established fact.", "比较 Hana 对工具去向的说法，以及案卷记录的 Lear 女士的说法。要找的是能直接说明相关时点有没有人拿着工具的材料。向对方出示另一份说法可以检验矛盾，但证词本身还不是已经确定的事实。"],
         options: [
           ["Present Ms. Lear’s statement", "出示 Lear 女士的证词"],
           ["Close the case file and accept Hana’s account", "关闭案卷，接受 Hana 的说法"],
@@ -320,6 +338,7 @@ const gameCases = [
         id: 320, afterRecord: 321,
         observation: ["The route card on the right pairs Lowick with High Head and Foxfield with Crinkle Crags.", "右侧路线卡上写着两组地名：Lowick 到 High Head，Foxfield 到 Crinkle Crags。"],
         memory: ["All four places are labeled on the same map grid.", "四个地名都能在同一张方格地图上找到。"],
+        hint: ["Start by finding each named place on the grid. The card gives two pairs and no single final place name. Treat each pair as a separate straight route, then look for a square that satisfies both at once. An endpoint is just one of the inputs to that comparison.", "先在格网里找到卡片上列出的四个地名。卡片给了两组端点，没有直接写最终地点。把每组端点连成一条直线，再找同时符合两条路线的方格。任何单独一个端点都只是这次判断的输入。"],
         options: [
           ["Click High Head, the end of the first line", "点击第一条线的终点 High Head"],
           ["Click the square where the two lines intersect", "点击两条连线相交的方格"],
@@ -333,6 +352,7 @@ const gameCases = [
         id: 378, afterRecord: 379,
         observation: ["A circular decoder is already positioned on the open map. Its center has a square window.", "圆形解码器已经摆在打开的地图上，中央有一个方形窗口。"],
         memory: ["The decoder and the symbol slips have already been positioned for the Candle clue.", "此前已经按 Candle 线索摆好了符号纸条和解码器。"],
+        hint: ["The circular decoder and slips have already been aligned for this clue, so preserve their positions. Look at which part of the tool exposes a discrete map square. Nearby landmarks may help you orient the map, but the opening is what tells you where the decoded destination lies.", "圆形解码器和符号纸条已经按这条线索对齐，先保留现在的位置。观察工具的哪个部分框出了一个单独的方格。附近地标可以帮你定位，但解码后的目的地要从工具的开口读出。"],
         options: [
           ["Click the square framed by the center window", "点击中央窗口框住的方格"],
           ["Click the center of the lake instead", "改点附近湖泊的正中央"],
@@ -355,6 +375,7 @@ const gameCases = [
         id: 41, afterRecord: 42,
         observation: ["The tool cabinet is open. Denise has brought a letter Lil cannot read as written.", "工具柜已打开。Denise 带来一封 Lil 暂时读不懂的信。"],
         memory: ["The letter comes from the children. The adults’ accounts have changed during the conversation.", "信是孩子们写的。大人的说法在对话中出现过变化。"],
+        hint: ["Denise and the other adults have given accounts of the dispute. The children’s letter is a separate source, but you cannot compare its contents until it is readable. Choose a tool by the barrier between Lil and that information. An inspection of belongings would answer a different question.", "Denise 和其他大人已经分别陈述了争执。孩子们的信是另一条来源，但读不懂就没法比较。先找出阻止 Lil 获取这条信息的是什么，再按那个障碍选工具。查随身物品回答的是另一个问题。"],
         options: [
           ["Use the X-ray to inspect Denise’s belongings", "用 X 光检查 Denise 的随身物品"],
           ["Put away the tools and rule on entry immediately", "收起工具，立即决定是否放行"],
@@ -368,6 +389,7 @@ const gameCases = [
         id: 47, afterRecord: 48,
         observation: ["The cabinet has reopened during the knight’s inspection. The spiral tool is available.", "检查骑士一行时，工具柜再次打开，螺旋工具可以使用。"],
         memory: ["The X-ray found concealed gold bars. Lil noticed markings on them, while the knight insisted they were legal.", "X 光发现他们藏着金条。Lil 注意到金条上的刻印，骑士却坚持说金条合法。"],
+        hint: ["The X-ray answered whether the group carried gold. The knight’s explanation leaves the origin of the bars open, and the markings give you something new to examine. Compare the available tools by whether they repeat a search you already did or help interpret the new clue.", "X 光已经回答了他们有没有带金条。骑士的说法并未解释金条的来历，刻印是一条新的可查线索。比较工具时，看看它是在重复已有的搜查，还是能帮助理解新发现的刻印。"],
         options: [
           ["Choose the Decoder Ring to examine the markings", "选解码环检查金条上的刻印"],
           ["Run the same X-ray inspection again", "再做一遍同样的 X 光检查"],
@@ -390,6 +412,7 @@ const gameCases = [
         id: 53, afterRecord: 54,
         observation: ["The Thinking page shows a dining portrait, a stained white coat, and leather clothing laid out on a bed.", "推理页上有三幅衣服图：餐桌旁的肖像、沾有污渍的白外套，以及床上的皮衣。"],
         memory: ["The diary mentions riding out to hunt badgers. A damaged riding coat hangs by the window.", "日记提到骑马外出猎獾，窗边还挂着一件破损的骑马外套。"],
+        hint: ["Start on the evidence side rather than by matching words that sound plausible. The diary links one activity to an outing on horseback, and the room has a separate piece of riding clothing. Of the three pictures, look for the outfit that best fits that combination of clues.", "先从证据出发，不要只挑听起来像的词。日记把其中一项活动和骑马外出联系在一起，房间里还有一件骑马用的衣服。比较三张图，找出最符合这两条线索的那套着装。"],
         options: [
           ["Drag “hunting” onto the stained white coat", "把“hunting”拖到沾有污渍的白外套上"],
           ["Drag “hunting” onto the leather clothing on the bed", "把“hunting”拖到床上的皮衣上"],
@@ -403,6 +426,7 @@ const gameCases = [
         id: 54, afterRecord: 55,
         observation: ["The leather outfit is tagged “hunting.” The portrait shows a formal cravat and a meal.", "皮衣已经标为“hunting”。肖像里的人系着正式领巾，面前摆着食物。"],
         memory: ["The diary distinguishes dining, hunting, and researching as separate activities.", "日记里分别写到了用餐、狩猎和研究。"],
+        hint: ["Keep the hunting assignment in place while you compare the two unfilled pictures. In the portrait, look at both the person’s clothes and what is on the table. The practical difference between these scenes is a stronger clue than how formal either garment looks by itself.", "先保留已经配好的狩猎标签，再比较两张还没填的图。在肖像里同时看衣服和桌上的物件。两幅场景分别在做什么，比单看哪件衣服更正式更有判断力。"],
         options: [
           ["Drag “dining” onto the portrait at the table", "把“dining”拖到餐桌旁的肖像上"],
           ["Drag “dining” onto the stained white coat", "把“dining”拖到沾有污渍的白外套上"],
@@ -416,6 +440,7 @@ const gameCases = [
         id: 55, afterRecord: 56,
         observation: ["The dining and hunting slots are filled. The long white coat is the only outfit without a label.", "用餐和狩猎的空格都已填好，只剩白色长外套没有标签。"],
         memory: ["Researching is the third activity in the diary.", "研究是日记里记载的第三项活动。"],
+        hint: ["The dining portrait and leather outfit already have evidence behind them. Check whether the remaining activity also fits something you can see on the unfilled white garment. Using both the elimination and the garment’s appearance gives a stronger basis for the last assignment.", "餐桌肖像和皮衣已经各有独立证据。再检查剩下的活动是否也和白外套上能看见的特点相符。把排除法和衣服本身的外观结合起来，最后一个分配才有更扎实的依据。"],
         options: [
           ["Move “hunting” from the leather clothes to the white coat", "把“hunting”从皮衣移到白外套上"],
           ["Replace the portrait’s “dining” label with “researching”", "把肖像上的“dining”换成“researching”"],
@@ -438,6 +463,7 @@ const gameCases = [
         id: 48, afterRecord: 49,
         observation: ["Dan’s response form has an open dropdown. Desk Hobb is listed.", "Dan 的回复表单已展开下拉菜单，列表里有 Desk Hobb。"],
         memory: ["Dan described desk materials being rearranged and blamed a coworker. The guide associates that organizing behavior with a Desk Hobb.", "Dan 说桌上的材料被重新整理过，怀疑是同事所为。游戏手册里，主动整理桌面是 Desk Hobb 的特征。"],
+        hint: ["Separate Dan’s observation from his explanation of it. The useful observation is what happened to the desk materials. Compare that behavior with the fictional guide, then choose the category it supports. Selecting it will set the field for review before you send the response.", "把 Dan 看到的现象和他对原因的猜测分开。有用的是桌上的材料发生了什么。用这个行为去对照游戏手册，再选最有依据的类别。选好之后，发送前还可以在表单里核对。"],
         options: [
           ["Leave the field on “Entry Inaccessible”", "让选项停在“Entry Inaccessible”"],
           ["Select Desk Hobb from the response list", "从回复列表里选 Desk Hobb"],
@@ -451,6 +477,7 @@ const gameCases = [
         id: 54, afterRecord: 55,
         observation: ["David’s response dropdown is open. The Stair Slug reference is behind the form.", "David 的回复下拉菜单已打开，表单后面是 Stair Slug 的手册条目。"],
         memory: ["David reported a slug-like creature almost the size of a dog near his basement stairs.", "David 说在地下室的楼梯附近看见一只像蛞蝓的生物，几乎有一条狗那么大。"],
+        hint: ["Use two independent details from the call: the rough size of the creature and where David found it. Search for a guide entry that fits both instead of matching on a single word. Check the category is actually set in the form before treating it as your response.", "同时用来电里两个独立细节：生物大概有多大，以及 David 在什么地方看到它。找能同时解释两点的手册条目，不要只凭一个词就决定。也别把手册上打开的条目和表单里已经选好的类别混为一谈。"],
         options: [
           ["Select Stair Slug from the response list", "从回复列表里选 Stair Slug"],
           ["Select Desk Hobb again", "再次选 Desk Hobb"],
@@ -473,6 +500,7 @@ const gameCases = [
         id: 210, beforeRecord: 209, afterRecord: 210,
         observation: ["The opened cliff sample contains red and white grains. The inventory offers a loupe for closer inspection.", "打开的崖壁样本里有红白相间的颗粒，物品栏里有放大镜可供细查。"],
         memory: ["Nancy took this sample directly from the exposed cliff beside the waterfall.", "Nancy 直接从瀑布旁裸露的崖壁上取了样。"],
+        hint: ["The sample came from the cliff itself, but its red and white grains can still have several explanations. A useful next observation would separate color from grain size and texture. Look at the available tools and ask which one changes the amount of visual detail Nancy can see.", "样本确实取自崖壁，但红白相间的颗粒仍然可能有多种解释。下一次观察要能把颜色与颗粒大小、结构区分开。比较可用的工具，看看哪个能让 Nancy 看到更多表面细节。"],
         options: [
           ["Identify the red grains by color alone", "只凭颜色判断红色颗粒是什么"],
           ["Close the sample and move on to the river", "关闭样本窗口，直接去河边"],
@@ -486,6 +514,7 @@ const gameCases = [
         id: 215, beforeRecord: 214, afterRecord: 215,
         observation: ["The washed river sample is selected in the inventory. It contains several light-colored fragments.", "物品栏里已选中洗过的河沙样本，里面有几块浅色碎片。"],
         memory: ["Washing removed the dirt so the individual pieces could be examined.", "泥土已经洗掉，现在可以逐个观察里面的碎片。"],
+        hint: ["Washing made the pieces visible, but visibility is only the first test. A bright fragment is not yet a specific mineral. Focus on the sample currently in the inventory and choose how to examine the surface features that plain color and shine cannot tell you about.", "冲洗让碎片显露出来，但看得见只是第一步，反光也不足以确认矿物种类。先锁定物品栏里当前选中的样本，再想用什么办法看清颜色和光泽无法说明的表面特征。"],
         options: [
           ["Use the loupe on the washed river sample", "用放大镜观察洗过的河沙样本"],
           ["Record the light fragments as diamonds", "把浅色碎片记为钻石"],
@@ -508,6 +537,7 @@ const gameCases = [
         id: 51, afterRecord: 52,
         observation: ["Anna stands by the vending machine with her inventory open. The panel has a yellow payment reader.", "Anna 站在自动售货机旁，物品栏已打开，机器面板上有一个黄色的付款读卡器。"],
         memory: ["Anna has already selected a rice-ball meal and picked up a Payment badge from the office cabinet.", "Anna 已经选好饭团，之前也从办公室柜子里拿到了 Payment 付款卡。"],
+        hint: ["The product choice has already been made. What is missing is an interaction between an inventory item and the payment area of the machine. Compare the jobs of the items Anna is carrying with the feature on the vending panel. Picking the meal again would leave the payment step unresolved.", "餐点已经选定，现在缺的是让某个物品和机器的付款区域发生交互。把 Anna 随身物品的用途和售货机面板上的部件对应起来。重新选一次饭团也不能补上付款这一步。"],
         options: [
           ["Drag the locker keychain onto the payment reader", "把储物柜钥匙串拖到读卡器上"],
           ["Drag the Payment badge onto the yellow reader", "把 Payment 付款卡拖到黄色读卡器上"],
@@ -530,6 +560,7 @@ const gameCases = [
         id: 139, afterRecord: 140,
         observation: ["The Deductions board has two fact circles: Watson keeps clearing his throat, and he has eaten curried lamb.", "推理板上有两个事实圆圈：Watson 不停清嗓子，而且刚吃过咖喱羊肉。"],
         memory: ["Watson said he did not need anything. Holmes decided to observe him and the room before taking his word for it.", "Watson 说自己什么都不需要。Holmes 决定先观察他和房间里的线索。"],
+        hint: ["Read both circles before leaving the deductions board. Clearing a throat on its own has many possible explanations. The recent meal gives it context, and the board is designed to combine observations. Think about what linking these two facts could suggest about Watson’s immediate needs.", "离开推理板前先读两个圆圈。只凭清嗓子可以有很多解释，刚吃过的食物则给它提供了背景，而这块板能把观察联系起来。想想把这两个事实放在一起，可以对 Watson 眼下的需要提出什么假设。"],
         options: [
           ["Open “Important news for Watson” on the results list", "打开结果列表里的“有重要消息告诉 Watson”"],
           ["Drag the curried-lamb fact onto the throat-clearing fact", "把“吃过咖喱羊肉”拖到“不停清嗓子”上"],
@@ -543,6 +574,7 @@ const gameCases = [
         id: 154, afterRecord: 155,
         observation: ["The clean beaker is selected. The Gasogene is on the sideboard to the left.", "干净的烧杯已选中，左侧餐边柜上放着 Gasogene 苏打水装置。"],
         memory: ["The deduction points to thirst, and the Gasogene makes carbonated water.", "先前推断 Watson 渴了，而这台装置可以制作苏打水。"],
+        hint: ["Separate the conclusion from what it takes to act on it. The conclusion points to a drink, but the selected vessel is still empty. Identify both the container and the object in the room that can supply its contents. The filled vessel can be offered to Watson later.", "把推断和落实推断的条件分开。Watson 可能想喝水，但选中的容器还是空的。先分别找出能装水的东西和房间里能出水的东西，装好之后才到了把饮料递给 Watson 的时候。"],
         options: [
           ["Use the beaker on the Gasogene", "把烧杯用在 Gasogene 装置上"],
           ["Hand the empty beaker to Watson", "把空烧杯递给 Watson"],
@@ -565,6 +597,7 @@ const gameCases = [
         id: 84, afterRecord: 86,
         observation: ["The ChronoZen archive is open with a blank search field.", "ChronoZen 历史档案已打开，搜索框是空的。"],
         memory: ["The emails and computer records give the name Lisa Sandman.", "邮件和电脑记录里给出的姓名是 Lisa Sandman。"],
+        hint: ["The archive offers several reusable name parts. Reconstruct the complete identity from the email and computer clues before sending the query. If the two parts come from different people, the result could point to the wrong record even if one of the terms looks familiar.", "档案界面提供了好几个可以组合的姓名词。提交前先用邮件和电脑里的资料把完整身份拼对。如果名字和姓氏来自不同的人，即使其中一个词眼熟，也可能查到错的档案。"],
         options: [
           ["Search the archive for Lisa Foster", "在档案里搜索 Lisa Foster"],
           ["Search for NYU without entering a person’s name", "只搜索 NYU，不输入人名"],
@@ -578,6 +611,7 @@ const gameCases = [
         id: 99, afterRecord: 101,
         observation: ["The archive is open again. Rhona and Foster are now available among its search terms.", "档案再次打开，可用检索词里现在有 Rhona 和 Foster。"],
         memory: ["The waitress and Lisa’s records both supplied the full name Rhona Foster.", "餐厅服务员和 Lisa 的电脑记录都提到了 Rhona Foster 这个全名。"],
+        hint: ["You already have Lisa’s record. To discover whether someone else worked at the same place, look up that person independently. Use the surname supported by both the waitress and the computer, then compare what the returned record says about employment with what you found earlier.", "Lisa 的档案已经查过。要判断另一个人是否也在那里工作，应独立查那个人的记录。先用服务员和电脑资料都支持的姓氏组成全名，再拿查到的任职经历与之前的档案对照。"],
         options: [
           ["Enter Rhona Foster and run the archive search", "输入 Rhona Foster 并搜索档案"],
           ["Search for Lisa Sandman a second time", "再搜索一次 Lisa Sandman"],
@@ -600,6 +634,7 @@ const gameCases = [
         id: 273, beforeRecord: 272, afterRecord: 273,
         observation: ["The three slots to the right of the central hat are filled. The slot directly to its left is empty.", "中央帽子右侧三个位置已有图案，正左方的位置还空着。"],
         memory: ["The slots correspond to viewing angles. The straight-right piece shows a side view with its brim extending to the right.", "各个位置对应不同视角。正右方的图案是帽檐向右伸出的侧视轮廓。"],
+        hint: ["Use the piece on the opposite side as an orientation reference. The empty slot is level with the middle of the hat, so compare horizontal profiles first. Then check which way the brim extends relative to the crown. The overhead and diagonal silhouettes describe different viewpoints.", "用对侧已经放好的图案作为方向参照。空位和帽子中央在同一水平线上，先比较水平侧视图，再看帽檐相对帽冠向哪边伸。俯视和斜视轮廓表示的是另外的观察方向。"],
         options: [
           ["Drag the overhead silhouette into the slot directly left of the hat", "把俯视轮廓拖进帽子正左方的空位"],
           ["Fill the left slot with a diagonal silhouette", "把斜视轮廓放进正左方的空位"],
@@ -613,6 +648,7 @@ const gameCases = [
         id: 339, afterRecord: 340,
         observation: ["On the symbol panel, the first three rows match their lines. The bottom row shows an equals sign, but its green line points to a dot.", "符号面板的前三行已与发光线路对应。最下面一行是等号，但对应的绿线终点是圆点。"],
         memory: ["Each arrow changes the symbol on its own row. The lit lines show which symbols to use.", "每个箭头只会切换所在行的符号。该选哪个符号，由发光线路指示。"],
+        hint: ["Trace the lit branches from the center and compare their endpoints with the symbols shown on the left. Decide which row still disagrees, then choose the control that changes only that row. Resetting the whole panel would throw away the matches already visible in this frame.", "从中央沿亮起的线路走到末端，再和左侧四行显示的符号逐一对照。找出仍然不一致的一行，选择只影响那一行的控制。重置面板会把这帧中已经配对的三行也改掉。"],
         options: [
           ["Toggle the second row again", "再切换一次第二行"],
           ["Toggle the bottom row with its left-side arrow", "用左侧箭头切换最下面一行"],
@@ -635,6 +671,7 @@ const gameCases = [
         id: 301, afterRecord: 302,
         observation: ["The regional map is open. HYDRO PLANT is marked near the lake.", "区域地图已打开，湖边标着 HYDRO PLANT（水电站）。"],
         memory: ["The farmer wants power restored before he helps tow the tree blocking the radio station.", "农场主要求先恢复供电，才肯帮忙拖走挡在广播站前的树。"],
+        hint: ["Harper ultimately needs the tree moved, but the conversation established an earlier dependency. Returning to the radio station would bring him back to the same obstruction. Compare the map destinations by which one gives him a lead on the condition the farmer set.", "Harper 最终要把树移走，但谈话已经说明必须先满足另一个条件。直接回广播站仍会遇到同一个障碍。比较地图上的地点，找能帮他追查农场主所提条件的那个去处。"],
         options: [
           ["Select HYDRO PLANT on the map", "在地图上选择 HYDRO PLANT"],
           ["Return directly to the radio station", "直接返回广播站"],
@@ -648,6 +685,7 @@ const gameCases = [
         id: 321, afterRecord: 322,
         observation: ["Harper is at the hydro plant speaking with Edwin. The menu includes a question about the nearby farm’s outage.", "Harper 正在水电站和 Edwin 谈话。对话选项里有一项提到附近农场停电。"],
         memory: ["Harper already knows that the farm has lost power. He still needs to learn what is happening at the plant.", "Harper 已确认农场停电，但还需要弄清水电站这边出了什么问题。"],
+        hint: ["Keep the conversation tied to a fact Harper can report from outside the plant. Edwin can respond to a specific affected location, while asking about a door could lead away from the immediate outage. Look for the line that brings the earlier farm observation into the current conversation.", "让谈话围绕 Harper 已经在厂外查实的事情展开。向 Edwin 说清楚哪个地方受影响，他就能针对停电回答；问门后是什么则可能把话题带开。找出能把前面在农场得到的观察带到当前对话里的那一项。"],
         options: [
           ["Ask Edwin what is behind the door", "问 Edwin 门后是什么"],
           ["Ask Edwin about the nearby farm with no power", "问 Edwin 知不知道附近农场停电"],
